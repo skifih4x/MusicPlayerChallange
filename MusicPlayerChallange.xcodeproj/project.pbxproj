@@ -56,15 +56,47 @@
 		0019593928D91599005891EE /* MusicPlayerChallange */ = {
 			isa = PBXGroup;
 			children = (
-				0019593A28D91599005891EE /* AppDelegate.swift */,
-				0019593C28D91599005891EE /* SceneDelegate.swift */,
-				0019593E28D91599005891EE /* ViewController.swift */,
-				0019594028D91599005891EE /* Main.storyboard */,
-				0019594328D9159A005891EE /* Assets.xcassets */,
-				0019594528D9159A005891EE /* LaunchScreen.storyboard */,
-				0019594828D9159A005891EE /* Info.plist */,
+				0019595028D91876005891EE /* App */,
+				0019594E28D91861005891EE /* Controller */,
+				0019594F28D91870005891EE /* View */,
+				0019595128D91883005891EE /* Resources */,
 			);
 			path = MusicPlayerChallange;
+			sourceTree = "<group>";
+		};
+		0019594E28D91861005891EE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0019593E28D91599005891EE /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0019594F28D91870005891EE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0019594028D91599005891EE /* Main.storyboard */,
+				0019594528D9159A005891EE /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0019595028D91876005891EE /* App */ = {
+			isa = PBXGroup;
+			children = (
+				0019593A28D91599005891EE /* AppDelegate.swift */,
+				0019593C28D91599005891EE /* SceneDelegate.swift */,
+				0019594828D9159A005891EE /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		0019595128D91883005891EE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0019594328D9159A005891EE /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,7 +321,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W9FSXFWG34;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MusicPlayerChallange/Info.plist;
+				INFOPLIST_FILE = MusicPlayerChallange/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -317,7 +349,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W9FSXFWG34;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MusicPlayerChallange/Info.plist;
+				INFOPLIST_FILE = MusicPlayerChallange/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
