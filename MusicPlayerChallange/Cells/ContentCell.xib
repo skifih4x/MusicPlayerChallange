@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ContentCell" id="gTV-IL-0wX" customClass="ContentCell" customModule="MusicPlayerChallange" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KIp-6L-TSV">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="posterImage" translatesAutoresizingMaskIntoConstraints="NO" id="Q2L-Jx-EN8">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMl-vR-HXk" userLabel="Song Label">
+                                <rect key="frame" x="0.0" y="204" width="200" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgU-Rw-n4o" userLabel="Artist Label">
+                                <rect key="frame" x="0.0" y="229" width="200" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Q2L-Jx-EN8" firstAttribute="top" secondItem="KIp-6L-TSV" secondAttribute="top" id="3Wp-Hy-bo3"/>
+                            <constraint firstAttribute="bottom" secondItem="tgU-Rw-n4o" secondAttribute="bottom" id="FoZ-1q-GpC"/>
+                            <constraint firstItem="zMl-vR-HXk" firstAttribute="top" secondItem="Q2L-Jx-EN8" secondAttribute="bottom" constant="4" id="H3n-V6-4ii"/>
+                            <constraint firstItem="zMl-vR-HXk" firstAttribute="top" secondItem="Q2L-Jx-EN8" secondAttribute="bottom" constant="4" id="IHb-Wg-Abs"/>
+                            <constraint firstAttribute="trailing" secondItem="Q2L-Jx-EN8" secondAttribute="trailing" id="MZB-e0-7Ge"/>
+                            <constraint firstAttribute="trailing" secondItem="tgU-Rw-n4o" secondAttribute="trailing" id="OG3-eg-ufJ"/>
+                            <constraint firstAttribute="trailing" secondItem="zMl-vR-HXk" secondAttribute="trailing" id="VlN-yT-B2I"/>
+                            <constraint firstItem="zMl-vR-HXk" firstAttribute="leading" secondItem="KIp-6L-TSV" secondAttribute="leading" id="d84-81-ZpO"/>
+                            <constraint firstItem="tgU-Rw-n4o" firstAttribute="top" secondItem="zMl-vR-HXk" secondAttribute="bottom" constant="4" id="e9z-Pw-i1e"/>
+                            <constraint firstItem="tgU-Rw-n4o" firstAttribute="leading" secondItem="KIp-6L-TSV" secondAttribute="leading" id="jNp-5k-mDt"/>
+                            <constraint firstItem="Q2L-Jx-EN8" firstAttribute="leading" secondItem="KIp-6L-TSV" secondAttribute="leading" id="yar-PM-cIl"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="KIp-6L-TSV" secondAttribute="trailing" id="5fk-FO-SzT"/>
+                <constraint firstAttribute="bottom" secondItem="KIp-6L-TSV" secondAttribute="bottom" id="8CM-oz-ZxL"/>
+                <constraint firstItem="KIp-6L-TSV" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Ect-gi-zW8"/>
+                <constraint firstItem="KIp-6L-TSV" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="xGf-jt-Bvb"/>
+            </constraints>
+            <size key="customSize" width="200" height="250"/>
+            <connections>
+                <outlet property="artistLabel" destination="tgU-Rw-n4o" id="Tma-hr-tNo"/>
+                <outlet property="posterImage" destination="Q2L-Jx-EN8" id="08c-Zj-h2z"/>
+                <outlet property="songLabel" destination="zMl-vR-HXk" id="QMa-ER-OoB"/>
+            </connections>
+            <point key="canvasLocation" x="252.30769230769229" y="122.98578199052132"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="posterImage" width="250" height="250"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

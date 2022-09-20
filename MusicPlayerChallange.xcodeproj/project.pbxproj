@@ -9,21 +9,31 @@
 /* Begin PBXBuildFile section */
 		0019593B28D91599005891EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0019593A28D91599005891EE /* AppDelegate.swift */; };
 		0019593D28D91599005891EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0019593C28D91599005891EE /* SceneDelegate.swift */; };
-		0019593F28D91599005891EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0019593E28D91599005891EE /* ViewController.swift */; };
+		0019593F28D91599005891EE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0019593E28D91599005891EE /* MainViewController.swift */; };
 		0019594228D91599005891EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0019594028D91599005891EE /* Main.storyboard */; };
 		0019594428D9159A005891EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0019594328D9159A005891EE /* Assets.xcassets */; };
 		0019594728D9159A005891EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0019594528D9159A005891EE /* LaunchScreen.storyboard */; };
+		37804FB828DA64D200EB2EFD /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37804FB728DA64D200EB2EFD /* MusicViewController.swift */; };
+		37804FBA28DA64F300EB2EFD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37804FB928DA64F300EB2EFD /* SearchViewController.swift */; };
+		37804FBD28DA679000EB2EFD /* ContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37804FBB28DA679000EB2EFD /* ContentCell.swift */; };
+		37804FBE28DA679000EB2EFD /* ContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37804FBC28DA679000EB2EFD /* ContentCell.xib */; };
+		37804FC128DA74A900EB2EFD /* BackgroundDecorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37804FC028DA74A900EB2EFD /* BackgroundDecorationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0019593728D91599005891EE /* MusicPlayerChallange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicPlayerChallange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0019593A28D91599005891EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0019593C28D91599005891EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0019593E28D91599005891EE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0019593E28D91599005891EE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		0019594128D91599005891EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0019594328D9159A005891EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0019594628D9159A005891EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0019594828D9159A005891EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37804FB728DA64D200EB2EFD /* MusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MusicViewController.swift; path = MusicPlayerChallange/View/MusicViewController.swift; sourceTree = SOURCE_ROOT; };
+		37804FB928DA64F300EB2EFD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = MusicPlayerChallange/View/SearchViewController.swift; sourceTree = SOURCE_ROOT; };
+		37804FBB28DA679000EB2EFD /* ContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCell.swift; sourceTree = "<group>"; };
+		37804FBC28DA679000EB2EFD /* ContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentCell.xib; sourceTree = "<group>"; };
+		37804FC028DA74A900EB2EFD /* BackgroundDecorationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundDecorationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +70,7 @@
 				0019594E28D91861005891EE /* Controller */,
 				0019594F28D91870005891EE /* View */,
 				0019595128D91883005891EE /* Resources */,
+				37804FBF28DA679700EB2EFD /* Cells */,
 			);
 			path = MusicPlayerChallange;
 			sourceTree = "<group>";
@@ -67,7 +78,9 @@
 		0019594E28D91861005891EE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0019593E28D91599005891EE /* ViewController.swift */,
+				0019593E28D91599005891EE /* MainViewController.swift */,
+				37804FB728DA64D200EB2EFD /* MusicViewController.swift */,
+				37804FB928DA64F300EB2EFD /* SearchViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -77,6 +90,7 @@
 			children = (
 				0019594028D91599005891EE /* Main.storyboard */,
 				0019594528D9159A005891EE /* LaunchScreen.storyboard */,
+				37804FC028DA74A900EB2EFD /* BackgroundDecorationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -97,6 +111,15 @@
 				0019594328D9159A005891EE /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		37804FBF28DA679700EB2EFD /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				37804FBB28DA679000EB2EFD /* ContentCell.swift */,
+				37804FBC28DA679000EB2EFD /* ContentCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +183,7 @@
 				0019594728D9159A005891EE /* LaunchScreen.storyboard in Resources */,
 				0019594428D9159A005891EE /* Assets.xcassets in Resources */,
 				0019594228D91599005891EE /* Main.storyboard in Resources */,
+				37804FBE28DA679000EB2EFD /* ContentCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,9 +194,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0019593F28D91599005891EE /* ViewController.swift in Sources */,
+				37804FBA28DA64F300EB2EFD /* SearchViewController.swift in Sources */,
+				37804FB828DA64D200EB2EFD /* MusicViewController.swift in Sources */,
+				0019593F28D91599005891EE /* MainViewController.swift in Sources */,
+				37804FBD28DA679000EB2EFD /* ContentCell.swift in Sources */,
 				0019593B28D91599005891EE /* AppDelegate.swift in Sources */,
 				0019593D28D91599005891EE /* SceneDelegate.swift in Sources */,
+				37804FC128DA74A900EB2EFD /* BackgroundDecorationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
