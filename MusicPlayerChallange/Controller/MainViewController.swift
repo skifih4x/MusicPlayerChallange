@@ -13,6 +13,7 @@ class MainViewController: UIViewController {
         didSet {
             collectionView.dataSource = self
             collectionView.register(UINib(nibName: "HeaderView", bundle: nil), forSupplementaryViewOfKind: "header", withReuseIdentifier: "HeaderView")
+            collectionView.register(UINib(nibName: "ContentCell", bundle: nil), forCellWithReuseIdentifier: "ContentCell")
         }
     }
     
@@ -42,13 +43,19 @@ class MainViewController: UIViewController {
         // Supplementary
         let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(44))
         let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: "header", alignment: .top)
-        
         section.boundarySupplementaryItems = [header]
         
+        // Decoration Item - BACKGROUND
+//        let backgroundItem = NSCollectionLayoutDecorationItem.background(elementKind: "background")
+//        section.decorationItems = [backgroundItem]
+        
+        // Section Configuration
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        config.interSectionSpacing = 20
         
         
         
-        return UICollectionViewCompositionalLayout(section: section)
+        return UICollectionViewCompositionalLayout(section: section, configuration: config)
     }()
 
 }

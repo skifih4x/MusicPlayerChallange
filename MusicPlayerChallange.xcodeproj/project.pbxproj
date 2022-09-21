@@ -19,6 +19,7 @@
 		37804FBE28DA679000EB2EFD /* ContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37804FBC28DA679000EB2EFD /* ContentCell.xib */; };
 		37804FF428DB37D100EB2EFD /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37804FF228DB37D100EB2EFD /* HeaderView.swift */; };
 		37804FF528DB37D100EB2EFD /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37804FF328DB37D100EB2EFD /* HeaderView.xib */; };
+		37804FF928DB3BAD00EB2EFD /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37804FF828DB3BAD00EB2EFD /* BackgroundView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		37804FBC28DA679000EB2EFD /* ContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentCell.xib; sourceTree = "<group>"; };
 		37804FF228DB37D100EB2EFD /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		37804FF328DB37D100EB2EFD /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		37804FF828DB3BAD00EB2EFD /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 			children = (
 				0019594028D91599005891EE /* Main.storyboard */,
 				0019594528D9159A005891EE /* LaunchScreen.storyboard */,
+				37804FF828DB3BAD00EB2EFD /* BackgroundView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 			files = (
 				37804FBA28DA64F300EB2EFD /* SearchViewController.swift in Sources */,
 				37804FB828DA64D200EB2EFD /* MusicViewController.swift in Sources */,
+				37804FF928DB3BAD00EB2EFD /* BackgroundView.swift in Sources */,
 				0019593F28D91599005891EE /* MainViewController.swift in Sources */,
 				37804FBD28DA679000EB2EFD /* ContentCell.swift in Sources */,
 				0019593B28D91599005891EE /* AppDelegate.swift in Sources */,
