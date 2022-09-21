@@ -18,14 +18,14 @@ final class ContentCell: UICollectionViewCell {
     
 
     @IBOutlet weak var posterImage: UIImageView!
-    @IBOutlet weak var songLabel: UILabel!
+    @IBOutlet weak var albumLabel: UILabel!
     @IBOutlet weak var artistLabel: UILabel!
     
     
     
     var viewModel: ViewModel! {
         didSet {
-            songLabel.text = "Nothing Else Matters"
+            albumLabel.text = "Black Album"
             artistLabel.text = "Metallica"
             
             // для парсинга обложки
