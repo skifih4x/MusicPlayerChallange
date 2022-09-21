@@ -13,8 +13,8 @@
 		0019594228D91599005891EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0019594028D91599005891EE /* Main.storyboard */; };
 		0019594428D9159A005891EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0019594328D9159A005891EE /* Assets.xcassets */; };
 		0019594728D9159A005891EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0019594528D9159A005891EE /* LaunchScreen.storyboard */; };
-		37804FB828DA64D200EB2EFD /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37804FB728DA64D200EB2EFD /* MusicViewController.swift */; };
-		37804FBA28DA64F300EB2EFD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37804FB928DA64F300EB2EFD /* SearchViewController.swift */; };
+		37804FB828DA64D200EB2EFD /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37804FB728DA64D200EB2EFD /* ShowViewController.swift */; };
+		37804FBA28DA64F300EB2EFD /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37804FB928DA64F300EB2EFD /* PlayerViewController.swift */; };
 		37804FBD28DA679000EB2EFD /* ContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37804FBB28DA679000EB2EFD /* ContentCell.swift */; };
 		37804FBE28DA679000EB2EFD /* ContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37804FBC28DA679000EB2EFD /* ContentCell.xib */; };
 		37804FF428DB37D100EB2EFD /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37804FF228DB37D100EB2EFD /* HeaderView.swift */; };
@@ -30,8 +30,8 @@
 		0019594328D9159A005891EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0019594628D9159A005891EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0019594828D9159A005891EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		37804FB728DA64D200EB2EFD /* MusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MusicViewController.swift; path = MusicPlayerChallange/View/MusicViewController.swift; sourceTree = SOURCE_ROOT; };
-		37804FB928DA64F300EB2EFD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = MusicPlayerChallange/View/SearchViewController.swift; sourceTree = SOURCE_ROOT; };
+		37804FB728DA64D200EB2EFD /* ShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShowViewController.swift; path = MusicPlayerChallange/View/ShowViewController.swift; sourceTree = SOURCE_ROOT; };
+		37804FB928DA64F300EB2EFD /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlayerViewController.swift; path = MusicPlayerChallange/View/PlayerViewController.swift; sourceTree = SOURCE_ROOT; };
 		37804FBB28DA679000EB2EFD /* ContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCell.swift; sourceTree = "<group>"; };
 		37804FBC28DA679000EB2EFD /* ContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentCell.xib; sourceTree = "<group>"; };
 		37804FF228DB37D100EB2EFD /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -81,8 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				0019593E28D91599005891EE /* MainViewController.swift */,
-				37804FB728DA64D200EB2EFD /* MusicViewController.swift */,
-				37804FB928DA64F300EB2EFD /* SearchViewController.swift */,
+				37804FB728DA64D200EB2EFD /* ShowViewController.swift */,
+				37804FB928DA64F300EB2EFD /* PlayerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -198,8 +198,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37804FBA28DA64F300EB2EFD /* SearchViewController.swift in Sources */,
-				37804FB828DA64D200EB2EFD /* MusicViewController.swift in Sources */,
+				37804FBA28DA64F300EB2EFD /* PlayerViewController.swift in Sources */,
+				37804FB828DA64D200EB2EFD /* ShowViewController.swift in Sources */,
 				0019593F28D91599005891EE /* MainViewController.swift in Sources */,
 				37804FBD28DA679000EB2EFD /* ContentCell.swift in Sources */,
 				0019593B28D91599005891EE /* AppDelegate.swift in Sources */,
