@@ -6,6 +6,7 @@
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -33,16 +34,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9Pf-b5-DBg">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9Pf-b5-DBg">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="761"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewLayout key="collectionViewLayout" id="vYb-e2-Bk2"/>
-                                <cells/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="cell" id="5u4-7h-1wV">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="RVF-rE-4FJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Opf-MU-iYC"/>
                         <color key="backgroundColor" red="0.24313725489999999" green="0.25098040700000002" blue="0.3058823645" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="9Pf-b5-DBg" firstAttribute="bottom" secondItem="Opf-MU-iYC" secondAttribute="bottom" id="ACl-vF-sq6"/>
+                            <constraint firstItem="9Pf-b5-DBg" firstAttribute="leading" secondItem="Opf-MU-iYC" secondAttribute="leading" id="Avf-Vx-4HQ"/>
+                            <constraint firstItem="9Pf-b5-DBg" firstAttribute="top" secondItem="uzt-Ym-aqv" secondAttribute="top" id="Wcf-V2-TSO"/>
+                            <constraint firstItem="9Pf-b5-DBg" firstAttribute="trailing" secondItem="Opf-MU-iYC" secondAttribute="trailing" id="sXh-7X-rl0"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="dTg-PA-UDT">
                         <imageReference key="image" image="house" catalog="system" renderingMode="hierarchical">
@@ -54,6 +69,9 @@
                         </imageReference>
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="collectionView" destination="9Pf-b5-DBg" id="vKF-VM-Ftw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yW4-As-3yG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
