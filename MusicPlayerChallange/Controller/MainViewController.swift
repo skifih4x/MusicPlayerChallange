@@ -12,8 +12,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
             collectionView.dataSource = self
-            //            collectionView.register(UINib(nibName: "HeaderView", bundle: nil), forSupplementaryViewOfKind: "header", withReuseIdentifier: "HeaderView")
-            //            collectionView.register(UINib(nibName: "ContentCell", bundle: nil), forCellWithReuseIdentifier: "ContentCell")
         }
     }
     
@@ -56,7 +54,7 @@ class MainViewController: UIViewController {
     // MARK: - Private Methods
     private func registerCells() {
         collectionView.register(UINib(nibName: "HeaderView", bundle: nil), forSupplementaryViewOfKind: "header", withReuseIdentifier: "HeaderView")
-        collectionView.register(UINib(nibName: "ContentCell", bundle: nil), forCellWithReuseIdentifier: "ContentCell")
+        collectionView.register(UINib(nibName: C.mainScreenCell, bundle: nil), forCellWithReuseIdentifier: C.mainScreenCell)
     }
 }
 
@@ -70,7 +68,7 @@ extension MainViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ContentCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: C.mainScreenCell, for: indexPath)
 //        cell.backgroundColor = .
         return cell
     }
@@ -83,8 +81,4 @@ extension MainViewController: UICollectionViewDataSource {
         view.title = indexPath.section == 1 ? "Music to listen" : "Recently viewed"
         return view
     }
-    
-    
-    
 }
-

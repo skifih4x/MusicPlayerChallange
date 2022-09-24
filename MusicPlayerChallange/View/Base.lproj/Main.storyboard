@@ -34,28 +34,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9Pf-b5-DBg">
-                                <rect key="frame" x="16" y="122" width="358" height="639"/>
+                                <rect key="frame" x="16" y="91" width="358" height="670"/>
                                 <color key="backgroundColor" red="0.24313727020000001" green="0.25098040700000002" blue="0.3058823645" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewLayout key="collectionViewLayout" id="vYb-e2-Bk2"/>
                                 <cells/>
                             </collectionView>
-                            <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" placeholder="search for what you want to listen" translatesAutoresizingMaskIntoConstraints="NO" id="j62-ke-3kK">
-                                <rect key="frame" x="16" y="50" width="358" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="RtC-w6-ovd" id="NWd-SP-iFz"/>
-                                </connections>
-                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Opf-MU-iYC"/>
                         <color key="backgroundColor" red="0.24313725489999999" green="0.25098040700000002" blue="0.3058823645" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="j62-ke-3kK" firstAttribute="top" secondItem="uzt-Ym-aqv" secondAttribute="top" constant="50" id="0lQ-wP-Fng"/>
                             <constraint firstItem="9Pf-b5-DBg" firstAttribute="bottom" secondItem="Opf-MU-iYC" secondAttribute="bottom" id="ACl-vF-sq6"/>
                             <constraint firstItem="9Pf-b5-DBg" firstAttribute="leading" secondItem="Opf-MU-iYC" secondAttribute="leading" constant="16" id="Avf-Vx-4HQ"/>
-                            <constraint firstItem="9Pf-b5-DBg" firstAttribute="top" secondItem="j62-ke-3kK" secondAttribute="bottom" constant="16" id="R7W-ID-jZq"/>
-                            <constraint firstItem="j62-ke-3kK" firstAttribute="leading" secondItem="uzt-Ym-aqv" secondAttribute="leading" constant="16" id="ZIQ-n6-7D1"/>
-                            <constraint firstAttribute="trailing" secondItem="j62-ke-3kK" secondAttribute="trailing" constant="16" id="aYB-hI-hN8"/>
+                            <constraint firstItem="9Pf-b5-DBg" firstAttribute="top" secondItem="Opf-MU-iYC" secondAttribute="top" id="SLo-Fj-L9u"/>
                             <constraint firstItem="9Pf-b5-DBg" firstAttribute="trailing" secondItem="Opf-MU-iYC" secondAttribute="trailing" constant="-16" id="sXh-7X-rl0"/>
                         </constraints>
                     </view>
@@ -77,17 +67,27 @@
             </objects>
             <point key="canvasLocation" x="1130.7692307692307" y="-680.33175355450237"/>
         </scene>
-        <!--Music-->
+        <!--Search-->
         <scene sceneID="3qs-Ed-UMy">
             <objects>
-                <viewController id="gUO-CY-gCE" userLabel="Music" customClass="ShowViewController" customModule="MusicPlayerChallange" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gUO-CY-gCE" userLabel="Search" customClass="SearchViewController" customModule="MusicPlayerChallange" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dab-NZ-msx">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="search for music" translatesAutoresizingMaskIntoConstraints="NO" id="2FT-YQ-CRX">
+                                <rect key="frame" x="6" y="97" width="378" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="gUO-CY-gCE" id="cRs-Er-mRG"/>
+                                </connections>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="iaa-nT-HDx">
-                                <rect key="frame" x="0.0" y="91" width="390" height="670"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="159" width="390" height="602"/>
+                                <color key="backgroundColor" red="0.24313727020000001" green="0.25098040700000002" blue="0.3058823645" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="separatorColor" red="0.24313727020000001" green="0.25098040700000002" blue="0.3058823645" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="sectionIndexBackgroundColor" red="0.24313727020000001" green="0.25098040700000002" blue="0.3058823645" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="sectionIndexTrackingBackgroundColor" red="0.24313727020000001" green="0.25098040700000002" blue="0.3058823645" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="wEB-9v-uQ4">
                                         <rect key="frame" x="0.0" y="50" width="390" height="43.666667938232422"/>
@@ -103,10 +103,13 @@
                         <viewLayoutGuide key="safeArea" id="aUs-7F-Lbx"/>
                         <color key="backgroundColor" red="0.24313725489999999" green="0.25098040700000002" blue="0.3058823645" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="2FT-YQ-CRX" firstAttribute="leading" secondItem="aUs-7F-Lbx" secondAttribute="leading" constant="6" id="B8Y-6Y-wmx"/>
                             <constraint firstItem="aUs-7F-Lbx" firstAttribute="trailing" secondItem="iaa-nT-HDx" secondAttribute="trailing" id="FTE-Of-SJe"/>
                             <constraint firstItem="aUs-7F-Lbx" firstAttribute="bottom" secondItem="iaa-nT-HDx" secondAttribute="bottom" id="J3e-Bg-Vdi"/>
-                            <constraint firstItem="iaa-nT-HDx" firstAttribute="top" secondItem="aUs-7F-Lbx" secondAttribute="top" id="RUH-d3-miX"/>
+                            <constraint firstItem="iaa-nT-HDx" firstAttribute="top" secondItem="2FT-YQ-CRX" secondAttribute="bottom" constant="6" id="TMh-ZP-69W"/>
                             <constraint firstItem="iaa-nT-HDx" firstAttribute="leading" secondItem="aUs-7F-Lbx" secondAttribute="leading" id="XC0-UH-peJ"/>
+                            <constraint firstItem="2FT-YQ-CRX" firstAttribute="top" secondItem="aUs-7F-Lbx" secondAttribute="top" constant="6" id="ccw-NZ-KaX"/>
+                            <constraint firstItem="2FT-YQ-CRX" firstAttribute="trailing" secondItem="aUs-7F-Lbx" secondAttribute="trailing" constant="-6" id="qP0-jL-FtL"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="2f8-CG-XlQ" userLabel="Item 2">
@@ -118,15 +121,19 @@
                             </hierarchicalColors>
                         </imageReference>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="searchBar" destination="2FT-YQ-CRX" id="ate-HY-4Q4"/>
+                        <outlet property="tableView" destination="iaa-nT-HDx" id="VZC-Lg-idE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3DP-Hb-hzt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1132" y="11"/>
+            <point key="canvasLocation" x="1130.7692307692307" y="10.663507109004739"/>
         </scene>
-        <!--Search-->
+        <!--Player-->
         <scene sceneID="Jgv-J4-wlt">
             <objects>
-                <viewController id="x56-Sv-IaZ" userLabel="Search" customClass="PlayerViewController" customModule="MusicPlayerChallange" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="x56-Sv-IaZ" userLabel="Player" customClass="PlayerViewController" customModule="MusicPlayerChallange" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7KH-j0-wvh">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -298,9 +305,6 @@
         <image name="music.quarternote.3" catalog="system" width="128" height="102"/>
         <image name="play" catalog="system" width="117" height="128"/>
         <image name="posterImage" width="250" height="250"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
