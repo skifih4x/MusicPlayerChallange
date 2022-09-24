@@ -21,6 +21,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         collectionView.collectionViewLayout = layout
         registerCells()
+        
     }
     
     let layout: UICollectionViewCompositionalLayout = {
@@ -70,8 +71,16 @@ extension MainViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ContentCell", for: indexPath)
-//        cell.backgroundColor = .
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ContentCell", for: indexPath) as? ContentCell else { return  UICollectionViewCell() }
+        NetworkFetch.shared.albumeFetchRammstein { result in
+            print(result)
+            switch result {
+            case .success(let success):
+                cell.configure(albumeModel: success.results[indexPath.item])
+            case .failure(let failure):
+                print(failure.localizedDescription)
+            }
+        }
         return cell
     }
     

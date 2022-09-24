@@ -34,8 +34,17 @@ final class ContentCell: UICollectionViewCell {
 //                    self.posterImage.image = image
 //                }
 //            }
-         
         }
     }
-
+    func configure(albumeModel: ResultsAlbum) {
+        albumLabel.text = albumeModel.collectionName
+        artistLabel.text = albumeModel.artistName
+        DispatchQueue.global().async {
+            guard let url = URL(string: albumeModel.artworkUrl100 ?? "") else { return }
+            guard let imageData = try? Data(contentsOf: url) else { return }
+            DispatchQueue.main.async {
+                self.posterImage.image = UIImage(data: imageData)
+            }
+        }
+    }
 }
