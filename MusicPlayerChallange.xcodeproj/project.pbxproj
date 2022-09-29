@@ -82,11 +82,11 @@
 			children = (
 				00AC4BFD28DCE8C8004D1EED /* NetworkManager */,
 				00AC4BFA28DC7E95004D1EED /* Model */,
-				0019595028D91876005891EE /* App */,
 				0019594E28D91861005891EE /* Controller */,
 				0019594F28D91870005891EE /* View */,
 				0019595128D91883005891EE /* Resources */,
 				37804FBF28DA679700EB2EFD /* Cells */,
+				0019595028D91876005891EE /* App */,
 			);
 			path = MusicPlayerChallange;
 			sourceTree = "<group>";

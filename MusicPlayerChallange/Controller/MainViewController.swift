@@ -9,9 +9,12 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    var traks: [ResultsAlbum]?
+    
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
             collectionView.dataSource = self
+            collectionView.delegate = self
         }
     }
     
@@ -69,9 +72,11 @@ extension MainViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
+        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ContentCell", for: indexPath) as? ContentCell else { return  UICollectionViewCell() }
-        NetworkFetch.shared.albumeFetchRammstein { result in
+        
+        switch indexPath.section {
+        case 0:         NetworkFetch.shared.albumeFetchRammstein { result in
             print(result)
             switch result {
             case .success(let success):
@@ -80,7 +85,18 @@ extension MainViewController: UICollectionViewDataSource {
                 print(failure.localizedDescription)
             }
         }
-
+        default:         NetworkFetch.shared.albumeFetchSystem { result in
+            print(result)
+            switch result {
+            case .success(let success):
+                cell.configure(albumeModel: success.results[indexPath.item])
+            case .failure(let failure):
+                print(failure.localizedDescription)
+            }
+        }
+        }
+        
+        
         return cell
     }
     
@@ -91,5 +107,34 @@ extension MainViewController: UICollectionViewDataSource {
         
         view.title = indexPath.section == 1 ? "Music to listen" : "Recently viewed"
         return view
+    }
+}
+
+extension MainViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        switch indexPath.section {
+        case 0:
+            NetworkFetch.shared.albumeFetchRammstein { result in
+            print(result)
+            switch result {
+            case .success(let success):
+                print(success.results[indexPath.row].collectionId)
+            case .failure(let failure):
+                print(failure.localizedDescription)
+            }
+        }
+        default:
+            NetworkFetch.shared.albumeFetchSystem { result in
+            print(result)
+            switch result {
+            case .success(let success):
+                print(success.results[indexPath.row].collectionId)
+            case .failure(let failure):
+                print(failure.localizedDescription)
+            }
+        }
+        }
+
     }
 }
