@@ -9,8 +9,6 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    var traks: [ResultsAlbum]?
-    
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
             collectionView.dataSource = self
@@ -22,10 +20,11 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         collectionView.collectionViewLayout = layout
         registerCells()
-        
     }
     
     let layout: UICollectionViewCompositionalLayout = {
+        
+        
         
         let inset: CGFloat = 2.5
         
@@ -34,8 +33,9 @@ class MainViewController: UIViewController {
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: inset, leading: inset, bottom: inset, trailing: inset)
         
+        
         //Group
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.4), heightDimension: .fractionalHeight(0.3))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.4), heightDimension: .fractionalHeight(0.4))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
         //Section
@@ -49,12 +49,11 @@ class MainViewController: UIViewController {
         
         // Section Configuration
         let config = UICollectionViewCompositionalLayoutConfiguration()
-        config.interSectionSpacing = 20
-        
-        
+        config.interSectionSpacing = 0
         
         return UICollectionViewCompositionalLayout(section: section, configuration: config)
     }()
+    
     // MARK: - Private Methods
     private func registerCells() {
         collectionView.register(UINib(nibName: "HeaderView", bundle: nil), forSupplementaryViewOfKind: "header", withReuseIdentifier: "HeaderView")
@@ -63,6 +62,7 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: UICollectionViewDataSource {
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
@@ -76,27 +76,27 @@ extension MainViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ContentCell", for: indexPath) as? ContentCell else { return  UICollectionViewCell() }
         
         switch indexPath.section {
-        case 0:         NetworkFetch.shared.albumeFetchRammstein { result in
-            print(result)
-            switch result {
-            case .success(let success):
-                cell.configure(albumeModel: success.results[indexPath.item])
-            case .failure(let failure):
-                print(failure.localizedDescription)
+        case 0:
+            NetworkFetch.shared.albumeFetchRammstein { result in
+                print(result)
+                switch result {
+                case .success(let success):
+                    cell.configure(albumeModel: success.results[indexPath.item])
+                case .failure(let failure):
+                    print(failure.localizedDescription)
+                }
+            }
+        default:
+            NetworkFetch.shared.albumeFetchSystem { result in
+                print(result)
+                switch result {
+                case .success(let success):
+                    cell.configure(albumeModel: success.results[indexPath.item])
+                case .failure(let failure):
+                    print(failure.localizedDescription)
+                }
             }
         }
-        default:         NetworkFetch.shared.albumeFetchSystem { result in
-            print(result)
-            switch result {
-            case .success(let success):
-                cell.configure(albumeModel: success.results[indexPath.item])
-            case .failure(let failure):
-                print(failure.localizedDescription)
-            }
-        }
-        }
-        
-        
         return cell
     }
     
@@ -108,33 +108,34 @@ extension MainViewController: UICollectionViewDataSource {
         view.title = indexPath.section == 1 ? "Music to listen" : "Recently viewed"
         return view
     }
+
 }
 
 extension MainViewController: UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         switch indexPath.section {
         case 0:
             NetworkFetch.shared.albumeFetchRammstein { result in
-            print(result)
-            switch result {
-            case .success(let success):
-                print(success.results[indexPath.row].collectionId)
-            case .failure(let failure):
-                print(failure.localizedDescription)
+                print(result)
+                switch result {
+                case .success(let success):
+                    print(success.results[indexPath.row].collectionId)
+                case .failure(let failure):
+                    print(failure.localizedDescription)
+                }
             }
-        }
         default:
             NetworkFetch.shared.albumeFetchSystem { result in
-            print(result)
-            switch result {
-            case .success(let success):
-                print(success.results[indexPath.row].collectionId)
-            case .failure(let failure):
-                print(failure.localizedDescription)
+                print(result)
+                switch result {
+                case .success(let success):
+                    print(success.results[indexPath.row].collectionId)
+                case .failure(let failure):
+                    print(failure.localizedDescription)
+                }
             }
         }
-        }
-
     }
 }
