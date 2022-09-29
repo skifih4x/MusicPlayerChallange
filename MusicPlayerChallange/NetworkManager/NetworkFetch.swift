@@ -2,7 +2,7 @@
 //  NetworkFetch.swift
 //  MusicPlayerChallange
 //
-//  Created by Артем Орлов on 22.09.2022.
+//  Created by Артем Орлов on 29.09.2022.
 //
 
 import Foundation

@@ -13,11 +13,9 @@
 		0019594228D91599005891EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0019594028D91599005891EE /* Main.storyboard */; };
 		0019594428D9159A005891EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0019594328D9159A005891EE /* Assets.xcassets */; };
 		0019594728D9159A005891EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0019594528D9159A005891EE /* LaunchScreen.storyboard */; };
+		006EC69B28E5B76F000D60BA /* NetworkFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006EC69A28E5B76F000D60BA /* NetworkFetch.swift */; };
 		00AC4BFC28DC7EC0004D1EED /* AlbumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AC4BFB28DC7EC0004D1EED /* AlbumModel.swift */; };
-
-
 		37804FB828DA64D200EB2EFD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37804FB728DA64D200EB2EFD /* SearchViewController.swift */; };
-
 		37804FBA28DA64F300EB2EFD /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37804FB928DA64F300EB2EFD /* PlayerViewController.swift */; };
 		37804FBD28DA679000EB2EFD /* ContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37804FBB28DA679000EB2EFD /* ContentCell.swift */; };
 		37804FBE28DA679000EB2EFD /* ContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37804FBC28DA679000EB2EFD /* ContentCell.xib */; };
@@ -38,10 +36,9 @@
 		0019594328D9159A005891EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0019594628D9159A005891EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0019594828D9159A005891EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		006EC69A28E5B76F000D60BA /* NetworkFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFetch.swift; sourceTree = "<group>"; };
 		00AC4BFB28DC7EC0004D1EED /* AlbumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumModel.swift; sourceTree = "<group>"; };
-
 		37804FB728DA64D200EB2EFD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = MusicPlayerChallange/View/SearchViewController.swift; sourceTree = SOURCE_ROOT; };
-
 		37804FB928DA64F300EB2EFD /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlayerViewController.swift; path = MusicPlayerChallange/View/PlayerViewController.swift; sourceTree = SOURCE_ROOT; };
 		37804FBB28DA679000EB2EFD /* ContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCell.swift; sourceTree = "<group>"; };
 		37804FBC28DA679000EB2EFD /* ContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentCell.xib; sourceTree = "<group>"; };
@@ -144,7 +141,7 @@
 		00AC4BFD28DCE8C8004D1EED /* NetworkManager */ = {
 			isa = PBXGroup;
 			children = (
-				00AC4BFE28DCE8F0004D1EED /* NetworkFetch.swift */,
+				006EC69A28E5B76F000D60BA /* NetworkFetch.swift */,
 			);
 			path = NetworkManager;
 			sourceTree = "<group>";
@@ -237,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3780500028DFA9DD00EB2EFD /* TracksTableViewCell.swift in Sources */,
+				006EC69B28E5B76F000D60BA /* NetworkFetch.swift in Sources */,
 				37804FBA28DA64F300EB2EFD /* PlayerViewController.swift in Sources */,
 				37804FB828DA64D200EB2EFD /* SearchViewController.swift in Sources */,
 				0019593F28D91599005891EE /* MainViewController.swift in Sources */,
@@ -246,7 +244,6 @@
 				00AC4BFC28DC7EC0004D1EED /* AlbumModel.swift in Sources */,
 				37804FFB28DFA7EB00EB2EFD /* Tracks.swift in Sources */,
 				0019593D28D91599005891EE /* SceneDelegate.swift in Sources */,
-				00AC4BFF28DCE8F0004D1EED /* NetworkFetch.swift in Sources */,
 				37804FF428DB37D100EB2EFD /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
