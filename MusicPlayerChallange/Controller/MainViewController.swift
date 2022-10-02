@@ -16,15 +16,16 @@ class MainViewController: UIViewController {
         }
     }
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.collectionViewLayout = layout
         registerCells()
+        
     }
     
     let layout: UICollectionViewCompositionalLayout = {
-        
-        
         
         let inset: CGFloat = 2.5
         
@@ -35,7 +36,7 @@ class MainViewController: UIViewController {
         
         
         //Group
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.4), heightDimension: .fractionalHeight(0.4))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.6), heightDimension: .fractionalHeight(0.4))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
         //Section

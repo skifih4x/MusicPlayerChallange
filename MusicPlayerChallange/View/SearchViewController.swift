@@ -9,8 +9,12 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
+    
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    
+   
     
     let tracks: [Tracks] = [
         Tracks(artistName: "Metallica", trackName: "Nothing Else Matters", length: "5:12"),
@@ -32,6 +36,8 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
+        
         // text properties for the search bar
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
             textfield.attributedPlaceholder = NSAttributedString(string: textfield.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
@@ -43,6 +49,11 @@ class SearchViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName: C.trackCellNibName, bundle: nil), forCellReuseIdentifier: C.tracksListCellIdentifier)
     }
+    
+    func loadItems(){
+        
+    }
+    
 }
 
 
@@ -70,3 +81,28 @@ extension SearchViewController: UITableViewDelegate {
         print(indexPath.row)
     }
 }
+
+extension SearchViewController: UISearchBarDelegate {
+        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//            let request: NSFetchRequest<Item> = Item.fetchRequest()
+//            let predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
+//
+//            request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+//
+//            loadItems(with: request, predicate: predicate)
+            tableView.reloadData()
+        }
+    
+        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+            if searchBar.text?.count == 0 {
+//                loadItems()
+                tableView.reloadData()
+    
+                DispatchQueue.main.async {
+                    searchBar.resignFirstResponder()
+                }
+            } else {
+                searchBarSearchButtonClicked(searchBar) // Live search
+            }
+        }
+    }

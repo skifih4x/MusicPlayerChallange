@@ -16,6 +16,13 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="p6O-zW-MzI">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="nqd-mb-VsI" kind="relationship" relationship="rootViewController" id="jXc-eR-huI"/>
@@ -35,13 +42,13 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9Pf-b5-DBg">
                                 <rect key="frame" x="16" y="88" width="382" height="725"/>
-                                <color key="backgroundColor" red="0.24313727020000001" green="0.25098040700000002" blue="0.3058823645" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewLayout key="collectionViewLayout" id="vYb-e2-Bk2"/>
                                 <cells/>
                             </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Opf-MU-iYC"/>
-                        <color key="backgroundColor" red="0.24313725489999999" green="0.25098040700000002" blue="0.3058823645" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="9Pf-b5-DBg" firstAttribute="bottom" secondItem="Opf-MU-iYC" secondAttribute="bottom" id="ACl-vF-sq6"/>
                             <constraint firstItem="9Pf-b5-DBg" firstAttribute="leading" secondItem="Opf-MU-iYC" secondAttribute="leading" constant="16" id="Avf-Vx-4HQ"/>
@@ -64,7 +71,7 @@
         <!--Search-->
         <scene sceneID="3qs-Ed-UMy">
             <objects>
-                <viewController id="gUO-CY-gCE" userLabel="Search" customClass="SearchViewController" customModule="MusicPlayerChallange" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Search" id="gUO-CY-gCE" userLabel="Search" customClass="SearchViewController" customModule="MusicPlayerChallange" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dab-NZ-msx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -256,7 +263,7 @@
         <scene sceneID="Mpt-iu-RbH">
             <objects>
                 <tabBarController id="nqd-mb-VsI" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="aBE-i4-Cyz"/>
+                    <navigationItem key="navigationItem" customizationIdentifier="bar" id="aBE-i4-Cyz"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" itemPositioning="fill" id="hy0-16-uxZ">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

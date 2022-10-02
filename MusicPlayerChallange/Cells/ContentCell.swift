@@ -22,20 +22,14 @@ final class ContentCell: UICollectionViewCell {
     @IBOutlet weak var artistLabel: UILabel!
     
     
-    
     var viewModel: ViewModel! {
         didSet {
-            albumLabel.text = "Black Album"
-            artistLabel.text = "Metallica"
-            
-            // для парсинга обложки
-//            if let posterURL = viewModel.posterURL {
-//                ImageManager.shared.fetchImegeOf(size: .medium, from: posterURL) { image in
-//                    self.posterImage.image = image
-//                }
-//            }
+//            albumLabel.text = "Black Album"
+//            artistLabel.text = "Metallica"
         }
     }
+    
+    
     func configure(albumeModel: ResultsAlbum) {
         albumLabel.text = albumeModel.collectionName
         artistLabel.text = albumeModel.artistName
@@ -44,7 +38,11 @@ final class ContentCell: UICollectionViewCell {
             guard let imageData = try? Data(contentsOf: url) else { return }
             DispatchQueue.main.async {
                 self.posterImage.image = UIImage(data: imageData)
+                self.posterImage.layer.cornerRadius = 10
+                self.posterImage.layer.borderWidth = 2
+                self.posterImage.layer.borderColor = CGColor.init(red: 255, green: 255, blue: 255, alpha: 0.5)
             }
         }
     }
 }
+
