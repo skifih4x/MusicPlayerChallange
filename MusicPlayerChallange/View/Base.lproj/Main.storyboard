@@ -189,7 +189,7 @@
                                         <color key="tintColor" red="0.1092822313" green="0.75441883480000005" blue="0.57553090289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
-                                            <imageReference key="image" image="play" catalog="system" symbolScale="large"/>
+                                            <imageReference key="image" image="pause.fill" catalog="system" symbolScale="large"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="ffButtonPressed:" destination="x56-Sv-IaZ" eventType="touchUpInside" id="xqx-un-N6O"/>
@@ -215,20 +215,41 @@
                                     <constraint firstAttribute="height" constant="70" id="0Ki-Bl-Y0i"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wsi-bc-L0B">
-                                <rect key="frame" x="348" y="505" width="382" height="20.333333333333332"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wsi-bc-L0B">
+                                <rect key="frame" x="0.0" y="572" width="116" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fOj-zJ-ONE">
-                                <rect key="frame" x="27" y="601" width="338" height="30"/>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fOj-zJ-ONE">
+                                <rect key="frame" x="27" y="524" width="338" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.10980392160000001" green="0.75294117650000003" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="sliderAction:" destination="x56-Sv-IaZ" eventType="valueChanged" id="HwS-pv-wy2"/>
                                 </connections>
                             </slider>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="speaker.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="37G-os-cYo">
+                                <rect key="frame" x="29" y="637" width="17" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.10980392160000001" green="0.75294117650000003" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Egg-Fq-pAD">
+                                <rect key="frame" x="52" y="632" width="118" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.10980392160000001" green="0.75294117650000003" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="handlerVolumeSlider:" destination="x56-Sv-IaZ" eventType="valueChanged" id="eWp-KE-wgQ"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="--:--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="55s-2m-jIW">
+                                <rect key="frame" x="294" y="572" width="69" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aMA-ff-Pib"/>
                         <color key="backgroundColor" red="0.24313725489999999" green="0.25098040700000002" blue="0.3058823645" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -251,11 +272,13 @@
                         <imageReference key="image" image="music.quarternote.3" catalog="system"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="durationTime" destination="55s-2m-jIW" id="p77-Dw-jz9"/>
                         <outlet property="ffButton" destination="YOI-08-hlI" id="Dud-9c-bOX"/>
                         <outlet property="labelTime" destination="Wsi-bc-L0B" id="ew0-qf-Dz7"/>
                         <outlet property="playButton" destination="Uhg-Xk-tQx" id="Jxd-K5-UJ0"/>
                         <outlet property="rwButton" destination="tok-Np-DaG" id="L2g-Dn-C4r"/>
                         <outlet property="slider" destination="fOj-zJ-ONE" id="jwP-z6-U5H"/>
+                        <outlet property="volumeSlider" destination="Egg-Fq-pAD" id="ogK-DL-yoU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SML-uD-6SI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -300,8 +323,9 @@
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="music.quarternote.3" catalog="system" width="128" height="102"/>
-        <image name="play" catalog="system" width="117" height="128"/>
+        <image name="pause.fill" catalog="system" width="117" height="128"/>
         <image name="posterImage" width="250" height="250"/>
+        <image name="speaker.fill" catalog="system" width="128" height="125"/>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
