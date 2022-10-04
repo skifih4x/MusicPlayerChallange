@@ -14,29 +14,18 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-   
     
-    let tracks: [Tracks] = [
-        Tracks(artistName: "Metallica", trackName: "Nothing Else Matters", length: "5:12"),
-        Tracks(artistName: "Nirvana", trackName: "Smells Like Teen Spirit", length: "3:38"),
-        Tracks(artistName: "Tool", trackName: "The Pot", length: "7:35"),
-        Tracks(artistName: "Metallica", trackName: "Nothing Else Matters", length: "5:12"),
-        Tracks(artistName: "Nirvana", trackName: "Smells Like Teen Spirit", length: "3:38"),
-        Tracks(artistName: "Tool", trackName: "The Pot", length: "7:35"),
-        Tracks(artistName: "Metallica", trackName: "Nothing Else Matters", length: "5:12"),
-        Tracks(artistName: "Nirvana", trackName: "Smells Like Teen Spirit", length: "3:38"),
-        Tracks(artistName: "Tool", trackName: "The Pot", length: "7:35"),
-        Tracks(artistName: "Metallica", trackName: "Nothing Else Matters", length: "5:12"),
-        Tracks(artistName: "Nirvana", trackName: "Smells Like Teen Spirit", length: "3:38"),
-        Tracks(artistName: "Tool", trackName: "The Pot", length: "7:35"),
-        Tracks(artistName: "Metallica", trackName: "Nothing Else Matters", length: "5:12"),
-        Tracks(artistName: "Nirvana", trackName: "Smells Like Teen Spirit", length: "3:38"),
-        Tracks(artistName: "Tool", trackName: "The Pot", length: "7:35")]
+    
+    var tracks: [Tracks] = []
+//        Tracks(artistName: "Metallica", collectionName: "Black Albom", trackName: "Nothing Else Matters", trackTimeMillis: 210743)
+    
+    var timer: Timer?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        
         
         // text properties for the search bar
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
@@ -50,11 +39,18 @@ class SearchViewController: UIViewController {
         tableView.register(UINib(nibName: C.trackCellNibName, bundle: nil), forCellReuseIdentifier: C.tracksListCellIdentifier)
     }
     
-    func loadItems(){
-        
+    private func fetchSong(songName: String) {
+        let urlString = "https://itunes.apple.com/search?entity=song&term=\(songName)"
+        NetworkFetch.shared.songFetch(urlString: urlString) { [weak self] trackModel, error in
+            if error == nil {
+                guard let trackModel = trackModel else {return}
+                self?.tracks = trackModel.results
+            } else {
+                print(error!.localizedDescription)
+            }
+        }
+        }
     }
-    
-}
 
 
 extension SearchViewController: UITableViewDataSource {
@@ -66,11 +62,19 @@ extension SearchViewController: UITableViewDataSource {
         
         let track = tracks[indexPath.row]
         
+//MARK: track length calculation
+//        let minsec: Double = round(((Double(track.trackTimeMillis) / 1000) / 60) * 100) / 100.0
+//        let min: Int = (track.trackTimeMillis / 1000) / 60
+//        let secs = round((round((minsec - Double(min)) * 100) / 100.0) * 60)
+//        let length = "\(min):\(Int(secs))"
+        
         
         let cell = tableView.dequeueReusableCell(withIdentifier: C.tracksListCellIdentifier, for: indexPath) as! TracksTableViewCell
-        cell.songLabel.text = track.trackName
-        cell.artistLabel.text = track.artistName
-        cell.songLengthLabel.text = track.length
+        NetworkFetch.shared.songFetch(urlString: <#T##String#>, response: <#T##(TrackModel?, Error?) -> Void#>)
+        cell.configure(trackModel: <#T##Tracks#>)
+//        cell.songLabel.text = track.trackName
+//        cell.artistLabel.text = track.artistName
+//        cell.songLengthLabel.text = String(length)
         
         return cell
     }
@@ -83,26 +87,27 @@ extension SearchViewController: UITableViewDelegate {
 }
 
 extension SearchViewController: UISearchBarDelegate {
-        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//            let request: NSFetchRequest<Item> = Item.fetchRequest()
-//            let predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
-//
-//            request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
-//
-//            loadItems(with: request, predicate: predicate)
-            tableView.reloadData()
-        }
+    //    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    //
+    //        tableView.reloadData()
+    //    }
     
-        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-            if searchBar.text?.count == 0 {
-//                loadItems()
-                tableView.reloadData()
-    
-                DispatchQueue.main.async {
-                    searchBar.resignFirstResponder()
-                }
-            } else {
-                searchBarSearchButtonClicked(searchBar) // Live search
-            }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0 {
+            timer?.invalidate()
+            timer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false, block: { [weak self] _ in
+                self?.fetchSong(songName: searchText)
+                self?.tableView.reloadData()
+            })
+//
+//            tableView.reloadData()
+//
+//            DispatchQueue.main.async {
+//                searchBar.resignFirstResponder()
+//            }
+            //        } else {
+            //            searchBarSearchButtonClicked(searchBar) // Live search
+            //        }
         }
     }
+}

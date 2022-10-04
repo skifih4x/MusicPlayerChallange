@@ -66,7 +66,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yW4-As-3yG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1130.7692307692307" y="-680.33175355450237"/>
+            <point key="canvasLocation" x="1130" y="-712"/>
         </scene>
         <!--Search-->
         <scene sceneID="3qs-Ed-UMy">
@@ -123,7 +123,45 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3DP-Hb-hzt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1130.7692307692307" y="10.663507109004739"/>
+            <point key="canvasLocation" x="1130" y="13"/>
+        </scene>
+        <!--Album View Controller-->
+        <scene sceneID="9x7-N6-0ZM">
+            <objects>
+                <viewController id="XlT-j4-zUs" customClass="AlbumViewController" customModule="MusicPlayerChallange" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fA2-rR-rAA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EK8-M3-pwg">
+                                <rect key="frame" x="0.0" y="411" width="414" height="485"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="485" id="EOr-EC-64Q"/>
+                                </constraints>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="52K-I0-2QI">
+                                <rect key="frame" x="87" y="88" width="240" height="240"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="P3h-V6-3IZ"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EK8-M3-pwg" firstAttribute="top" secondItem="52K-I0-2QI" secondAttribute="bottom" constant="83" id="1RS-SO-2oH"/>
+                            <constraint firstItem="EK8-M3-pwg" firstAttribute="centerX" secondItem="52K-I0-2QI" secondAttribute="centerX" id="TB8-Cm-AYu"/>
+                            <constraint firstItem="EK8-M3-pwg" firstAttribute="trailing" secondItem="P3h-V6-3IZ" secondAttribute="trailing" id="VRq-8J-IyM"/>
+                            <constraint firstItem="52K-I0-2QI" firstAttribute="top" secondItem="P3h-V6-3IZ" secondAttribute="top" constant="44" id="WTO-eE-Bqp"/>
+                            <constraint firstAttribute="bottom" secondItem="EK8-M3-pwg" secondAttribute="bottom" id="gCt-Zu-3U6"/>
+                            <constraint firstItem="EK8-M3-pwg" firstAttribute="leading" secondItem="P3h-V6-3IZ" secondAttribute="leading" id="iFw-79-5gi"/>
+                            <constraint firstItem="52K-I0-2QI" firstAttribute="leading" secondItem="P3h-V6-3IZ" secondAttribute="leading" constant="87" id="mEj-2J-aba"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="eDy-yM-X3N"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JQP-8m-Cap" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2042.0289855072465" y="12.723214285714285"/>
         </scene>
         <!--Player-->
         <scene sceneID="Jgv-J4-wlt">
@@ -249,6 +287,7 @@
                     <tabBarItem key="tabBarItem" title="" id="00U-8h-Fnz" userLabel="Item 3">
                         <imageReference key="image" image="music.quarternote.3" catalog="system"/>
                     </tabBarItem>
+                    <navigationItem key="navigationItem" id="Bqe-ZH-pdK"/>
                     <connections>
                         <outlet property="ffButton" destination="YOI-08-hlI" id="Dud-9c-bOX"/>
                         <outlet property="playButton" destination="Uhg-Xk-tQx" id="Jxd-K5-UJ0"/>

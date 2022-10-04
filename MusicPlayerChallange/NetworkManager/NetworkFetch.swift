@@ -48,4 +48,21 @@ struct NetworkFetch {
             }
         }.resume()
     }
+    
+    func songFetch(urlString: String, response: @escaping (TrackModel?, Error?) -> Void) {
+        DataFetch.shared.fetchData(urlString: urlString) { result in
+            switch result {
+            case .success(let data):
+                do {
+                    let results = try JSONDecoder().decode(TrackModel.self, from: data)
+                    response(results, nil )
+                } catch let jsonError {
+                    print("Failed to decode JSON", jsonError)
+                }
+            case .failure(let error):
+                print("Error fetching song data: \(error.localizedDescription)")
+                response(nil, error )
+            }
+        }
+    }
 }
