@@ -25,6 +25,9 @@
 		37804FFD28DFA8D700EB2EFD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37804FFC28DFA8D700EB2EFD /* Constants.swift */; };
 		3780500028DFA9DD00EB2EFD /* TracksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37804FFE28DFA9DD00EB2EFD /* TracksTableViewCell.swift */; };
 		3780500128DFA9DD00EB2EFD /* TracksTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37804FFF28DFA9DD00EB2EFD /* TracksTableViewCell.xib */; };
+		9711149C28E5EE8100A10BCF /* Hello.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9711149B28E5EE8100A10BCF /* Hello.mp3 */; };
+		9711149F28E5F01700A10BCF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9711149E28E5F01700A10BCF /* AVFoundation.framework */; };
+		97B0FC9C28EB4F5E00326BBC /* CMTime + Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B0FC9B28EB4F5E00326BBC /* CMTime + Extention.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,9 @@
 		37804FFC28DFA8D700EB2EFD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		37804FFE28DFA9DD00EB2EFD /* TracksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksTableViewCell.swift; sourceTree = "<group>"; };
 		37804FFF28DFA9DD00EB2EFD /* TracksTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TracksTableViewCell.xib; sourceTree = "<group>"; };
+		9711149B28E5EE8100A10BCF /* Hello.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Hello.mp3; sourceTree = "<group>"; };
+		9711149E28E5F01700A10BCF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		97B0FC9B28EB4F5E00326BBC /* CMTime + Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime + Extention.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9711149F28E5F01700A10BCF /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +73,7 @@
 			children = (
 				0019593928D91599005891EE /* MusicPlayerChallange */,
 				0019593828D91599005891EE /* Products */,
+				9711149D28E5F01700A10BCF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +105,7 @@
 				0019593E28D91599005891EE /* MainViewController.swift */,
 				37804FB728DA64D200EB2EFD /* SearchViewController.swift */,
 				37804FB928DA64F300EB2EFD /* PlayerViewController.swift */,
+				97B0FC9B28EB4F5E00326BBC /* CMTime + Extention.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -149,6 +158,7 @@
 		37804FBF28DA679700EB2EFD /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				9711149B28E5EE8100A10BCF /* Hello.mp3 */,
 				37804FBB28DA679000EB2EFD /* ContentCell.swift */,
 				37804FBC28DA679000EB2EFD /* ContentCell.xib */,
 				37804FF228DB37D100EB2EFD /* HeaderView.swift */,
@@ -157,6 +167,14 @@
 				37804FFF28DFA9DD00EB2EFD /* TracksTableViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		9711149D28E5F01700A10BCF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9711149E28E5F01700A10BCF /* AVFoundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +237,7 @@
 			files = (
 				0019594728D9159A005891EE /* LaunchScreen.storyboard in Resources */,
 				37804FF528DB37D100EB2EFD /* HeaderView.xib in Resources */,
+				9711149C28E5EE8100A10BCF /* Hello.mp3 in Resources */,
 				0019594428D9159A005891EE /* Assets.xcassets in Resources */,
 				0019594228D91599005891EE /* Main.storyboard in Resources */,
 				37804FBE28DA679000EB2EFD /* ContentCell.xib in Resources */,
@@ -236,6 +255,7 @@
 				3780500028DFA9DD00EB2EFD /* TracksTableViewCell.swift in Sources */,
 				006EC69B28E5B76F000D60BA /* NetworkFetch.swift in Sources */,
 				37804FBA28DA64F300EB2EFD /* PlayerViewController.swift in Sources */,
+				97B0FC9C28EB4F5E00326BBC /* CMTime + Extention.swift in Sources */,
 				37804FB828DA64D200EB2EFD /* SearchViewController.swift in Sources */,
 				0019593F28D91599005891EE /* MainViewController.swift in Sources */,
 				37804FBD28DA679000EB2EFD /* ContentCell.swift in Sources */,
