@@ -71,17 +71,16 @@ class PlayerViewController: UIViewController {
     
     func set() {
         trackTitleLabel.text = trackName
-        DispatchQueue.main.async {
-            let string600 = self.trackImage.replacingOccurrences(of: "100x100", with: "350x350")
-            print(string600)
-            guard let url = URL(string: string600) else { return }
-            let data = try? Data(contentsOf: url)
-            
-            //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-            self.trackImageView.image = UIImage(data: data!)
+
+        let string600 = self.trackImage.replacingOccurrences(of: "100x100", with: "350x350")
+        let url = URL(string: string600)
+
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: url!)
+            DispatchQueue.main.async {
+                self.trackImageView.image = UIImage(data: data!)
+            }
         }
-        
-        
         
         
         authorTitleLabel.text = authorName
