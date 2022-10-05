@@ -15,6 +15,8 @@ protocol TrackMovingDelegate: class {
 
 class PlayerViewController: UIViewController {
     
+    var mediaObject: Collectable? = nil
+    
    
 
 
@@ -27,7 +29,18 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var durationTime: UILabel!
     @IBOutlet weak var slider: UISlider!
     
+    @IBOutlet weak var trackImageView: UIImageView!
+    @IBOutlet weak var trackTitleLabel: UILabel!
+    @IBOutlet weak var authorTitleLabel: UILabel!
     @IBOutlet weak var volumeSlider: UISlider!
+    
+    var trackName: String = ""
+    var authorName: String = ""
+    var trackImage: String = ""
+    var trackURL: String = ""
+    
+    
+    var tracks = [Tracks]()
     
     var player: AVPlayer = {
         var avPlayer = AVPlayer()
@@ -39,20 +52,41 @@ class PlayerViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        set()
         
         rwButton.setImage(UIImage(systemName: "backward"), for: UIControl.State.normal)
         rwButton.setImage(UIImage(systemName: "backward.fill"), for: UIControl.State.highlighted)
-        
+
         ffButton.setImage(UIImage(systemName: "forward"), for: UIControl.State.normal)
         ffButton.setImage(UIImage(systemName: "forward.fill"), for: UIControl.State.highlighted)
         
-        //player = AVPlayer(url: URL(fileURLWithPath: Bundle.main.path(forResource: "Hello", ofType: "mp3")!))
-        
-        let url = URL(string: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/07/13/1f/07131fb9-b212-a859-ac10-f1eeb0ff4521/mzaf_6095673758554747946.plus.aac.p.m4a")
+        let url = URL(string: trackURL)
+        print(trackURL)
         let playerItem:AVPlayerItem = AVPlayerItem(url: url!)
         player = AVPlayer(playerItem: playerItem)
-
+        player.play()
         observePlayerTime()
+    }
+    
+    
+    func set() {
+        trackTitleLabel.text = trackName
+//        trackImageView.image = trackImage
+        
+        DispatchQueue.main.async {
+            guard let url = URL(string: self.trackImage) else { return }
+            let data = try? Data(contentsOf: url)
+            //        let string600 = viewModel.artworkUrl100?.replacingOccurrences(of: "100x100", with: "600x600")
+
+            //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+            self.trackImageView.image = UIImage(data: data!)
+        }
+        
+        authorTitleLabel.text = authorName
+        
+//
+//        let string600 = viewModel.artworkUrl100?.replacingOccurrences(of: "100x100", with: "600x600")
+//        print(string600)
     }
     
     
@@ -109,6 +143,7 @@ class PlayerViewController: UIViewController {
     }
     
     @IBAction func drugDownPressed(_ sender: Any) {
+        //self.removeFromSuperview()
     }
 }
 

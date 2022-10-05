@@ -14,6 +14,8 @@ class SearchViewController: UIViewController {
     
     var tracks = [Tracks]()
     var timer: Timer?
+    var playerView = PlayerViewController()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +44,7 @@ class SearchViewController: UIViewController {
             }
         }
     }
+    
 }
 
 extension SearchViewController: UITableViewDataSource {
@@ -52,15 +55,29 @@ extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: C.tracksListCellIdentifier, for: indexPath) as! TracksTableViewCell
         let track = tracks[indexPath.row]
+        cell.artistLabel.text = track.artistName
+        cell.songLabel.text = track.trackName
+        
         cell.configure(trackModel: track)
         return cell
     }
 }
 
 extension SearchViewController: UITableViewDelegate {
+    //var playerView = PlayerViewController
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //        print(indexPath.row)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "PlayerViewController") as? PlayerViewController
+        self.navigationController?.pushViewController(vc!, animated: true)
+        
+        let track = tracks[indexPath.row]
+        
+        vc?.trackName = track.trackName
+        vc?.authorName = track.artistName
+        vc?.trackImage = track.artworkUrl100 ?? "NA"
+        vc?.trackURL = track.previewUrl ?? "NA"
+
     }
+    
 }
 
 extension SearchViewController: UISearchBarDelegate {

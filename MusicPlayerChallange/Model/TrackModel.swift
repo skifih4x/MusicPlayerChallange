@@ -13,20 +13,20 @@
 import Foundation
 
 // MARK: - Welcome
-struct MusicData: Codable {
+struct MusicData: Decodable {
     let resultCount: Int
     let results: [Music]
 }
 
 // MARK: - Result
-struct Music: Codable {
+struct Music: Decodable {
     let wrapperType: WrapperType
     let collectionType: String?
     let artistID, collectionID: Int
     let amgArtistID: Int?
-    let artistName, collectionName, collectionCensoredName: Name
+    let artistName, collectionName, collectionCensoredName: String?
     let artistViewURL, collectionViewURL: String
-    let artworkUrl60, artworkUrl100: String
+    let artworkUrl60, artworkUrl100: String?
     let collectionPrice: Double
     let collectionExplicitness: Explicitness
     let trackCount: Int

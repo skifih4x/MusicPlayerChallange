@@ -166,7 +166,7 @@
         <!--Player-->
         <scene sceneID="Jgv-J4-wlt">
             <objects>
-                <viewController id="x56-Sv-IaZ" userLabel="Player" customClass="PlayerViewController" customModule="MusicPlayerChallange" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="PlayerViewController" storyboardIdentifier="PlayerViewController" modalPresentationStyle="fullScreen" id="x56-Sv-IaZ" userLabel="Player" customClass="PlayerViewController" customModule="MusicPlayerChallange" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7KH-j0-wvh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -336,12 +336,15 @@
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="Bqe-ZH-pdK"/>
                     <connections>
+                        <outlet property="authorTitleLabel" destination="Tjy-5C-aR9" id="d1A-3o-xET"/>
                         <outlet property="durationTime" destination="55s-2m-jIW" id="p77-Dw-jz9"/>
                         <outlet property="ffButton" destination="YOI-08-hlI" id="Dud-9c-bOX"/>
                         <outlet property="labelTime" destination="Wsi-bc-L0B" id="ew0-qf-Dz7"/>
                         <outlet property="playButton" destination="Uhg-Xk-tQx" id="Jxd-K5-UJ0"/>
                         <outlet property="rwButton" destination="tok-Np-DaG" id="L2g-Dn-C4r"/>
                         <outlet property="slider" destination="fOj-zJ-ONE" id="jwP-z6-U5H"/>
+                        <outlet property="trackImageView" destination="6gF-zX-aCH" id="pbB-Ma-gtl"/>
+                        <outlet property="trackTitleLabel" destination="I2Z-Vr-KkH" id="6Ai-BJ-5en"/>
                         <outlet property="volumeSlider" destination="Egg-Fq-pAD" id="ogK-DL-yoU"/>
                     </connections>
                 </viewController>
