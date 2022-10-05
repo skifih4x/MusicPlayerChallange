@@ -19,8 +19,9 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         // text properties for the search bar
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
-            textfield.attributedPlaceholder = NSAttributedString(string: textfield.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+            textfield.attributedPlaceholder = NSAttributedString(string: textfield.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
             textfield.textColor = UIColor.white
+            searchBar.placeholder = "Search"
         }
         
         tableView.delegate = self
@@ -66,7 +67,7 @@ extension SearchViewController: UITableViewDelegate {
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchBar.placeholder = "Search"
+//        searchBar.placeholder = "Search"
         if searchText != ""  {
             timer?.invalidate()
             timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { [weak self] _ in

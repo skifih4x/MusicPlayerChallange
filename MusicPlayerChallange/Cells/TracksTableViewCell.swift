@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVKit
 
 class TracksTableViewCell: UITableViewCell {
 
@@ -28,10 +29,12 @@ class TracksTableViewCell: UITableViewCell {
     }
     
     func configure(trackModel: Tracks) {
-        let minsec: Double = round(((Double(trackModel.trackTimeMillis) / 1000) / 60) * 100) / 100.0
-        let min: Int = (trackModel.trackTimeMillis / 1000) / 60
-        let secs = round((round((minsec - Double(min)) * 100) / 100.0) * 60)
-        let length = "\(min):\(Int(secs))"
+        
+        let seconds = trackModel.trackTimeMillis / 1000
+        let minutes = seconds / 60
+        let secondsFinal = String(format: "%02d", seconds - (minutes * 60))
+        let length = "\(minutes):\(secondsFinal)"
+
         
         songLabel.text = trackModel.trackName
         artistLabel.text = trackModel.artistName
