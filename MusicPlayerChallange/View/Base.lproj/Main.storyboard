@@ -189,16 +189,16 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vNh-T1-FTx" userLabel="Artist and Song Stack View">
-                                <rect key="frame" x="16" y="466" width="382" height="50"/>
+                                <rect key="frame" x="20" y="370" width="378" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Nothing Else Matters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2Z-Vr-KkH" userLabel="Song Label">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="25"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="378" height="25"/>
                                         <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="21"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Metallica" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tjy-5C-aR9" userLabel="Artist Label">
-                                        <rect key="frame" x="0.0" y="35" width="382" height="15"/>
+                                        <rect key="frame" x="0.0" y="35" width="378" height="15"/>
                                         <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -320,14 +320,14 @@
                             <constraint firstItem="aMA-ff-Pib" firstAttribute="trailing" secondItem="X55-gG-IGP" secondAttribute="trailing" constant="16" id="Az2-41-tJA"/>
                             <constraint firstItem="6gF-zX-aCH" firstAttribute="leading" secondItem="aMA-ff-Pib" secondAttribute="leading" constant="16" id="HiJ-j6-ikv"/>
                             <constraint firstItem="9PB-UV-m5F" firstAttribute="top" secondItem="7KH-j0-wvh" secondAttribute="top" constant="50" id="Sk3-6F-qh6"/>
-                            <constraint firstItem="vNh-T1-FTx" firstAttribute="top" secondItem="6gF-zX-aCH" secondAttribute="bottom" constant="116" id="XQl-10-2zh"/>
+                            <constraint firstItem="vNh-T1-FTx" firstAttribute="top" secondItem="6gF-zX-aCH" secondAttribute="bottom" constant="20" id="XQl-10-2zh"/>
                             <constraint firstItem="6gF-zX-aCH" firstAttribute="top" secondItem="9PB-UV-m5F" secondAttribute="bottom" constant="8" symbolic="YES" id="af8-yQ-B7f"/>
                             <constraint firstItem="6gF-zX-aCH" firstAttribute="centerX" secondItem="7KH-j0-wvh" secondAttribute="centerX" id="aoh-Qi-tF4"/>
                             <constraint firstItem="fWM-Nv-2TA" firstAttribute="top" secondItem="7KH-j0-wvh" secondAttribute="top" constant="33" id="bKy-x3-aGK"/>
                             <constraint firstItem="aMA-ff-Pib" firstAttribute="bottom" secondItem="X55-gG-IGP" secondAttribute="bottom" constant="30" id="cGv-yM-xZl"/>
                             <constraint firstAttribute="trailing" secondItem="fWM-Nv-2TA" secondAttribute="trailing" constant="156" id="grN-7g-sA7"/>
                             <constraint firstAttribute="trailing" secondItem="9PB-UV-m5F" secondAttribute="trailing" constant="16" id="vCS-0N-ffn"/>
-                            <constraint firstItem="vNh-T1-FTx" firstAttribute="leading" secondItem="aMA-ff-Pib" secondAttribute="leading" constant="16" id="w81-Sb-La0"/>
+                            <constraint firstItem="vNh-T1-FTx" firstAttribute="leading" secondItem="aMA-ff-Pib" secondAttribute="leading" constant="20" id="w81-Sb-La0"/>
                             <constraint firstItem="aMA-ff-Pib" firstAttribute="trailing" secondItem="vNh-T1-FTx" secondAttribute="trailing" constant="16" id="xl3-aG-8aZ"/>
                         </constraints>
                     </view>
