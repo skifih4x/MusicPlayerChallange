@@ -7,8 +7,14 @@
 
 import Foundation
 
-struct Tracks {
+struct TrackModel: Decodable {
+    let results: [Tracks]
+}
+
+struct Tracks: Decodable {
     let artistName: String
+    let collectionName: String
     let trackName: String
-    let length: String
+    let trackTimeMillis: Int
+    let artworkUrl100: String?
 }

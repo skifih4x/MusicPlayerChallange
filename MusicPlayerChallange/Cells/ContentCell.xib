@@ -10,35 +10,33 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ContentCell" id="gTV-IL-0wX" customClass="ContentCell" customModule="MusicPlayerChallange" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+            <rect key="frame" x="0.0" y="0.0" width="200" height="239"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+                <rect key="frame" x="0.0" y="0.0" width="200" height="239"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KIp-6L-TSV">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="239"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="posterImage" translatesAutoresizingMaskIntoConstraints="NO" id="Q2L-Jx-EN8">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="posterImage" translatesAutoresizingMaskIntoConstraints="NO" id="Q2L-Jx-EN8">
                                 <rect key="frame" x="5" y="8" width="190" height="190"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="190" id="5p0-3V-gm9"/>
                                     <constraint firstAttribute="height" constant="190" id="IHX-qF-qUc"/>
+                                    <constraint firstAttribute="width" secondItem="Q2L-Jx-EN8" secondAttribute="height" multiplier="1:1" id="oVI-sa-Emn"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Black Album" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zMl-vR-HXk" userLabel="Song Label">
-                                <rect key="frame" x="0.0" y="206.66666666666666" width="200" height="19.333333333333343"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="19.333333333333343" id="NAh-25-qc3"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Black Album" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zMl-vR-HXk" userLabel="Song Label">
+                                <rect key="frame" x="0.0" y="203" width="200" height="14.666666666666657"/>
                                 <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Metallica" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tgU-Rw-n4o" userLabel="Artist Label">
-                                <rect key="frame" x="0.0" y="230" width="200" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Metallica" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="tgU-Rw-n4o" userLabel="Artist Label">
+                                <rect key="frame" x="0.0" y="219.66666666666666" width="200" height="19.333333333333343"/>
                                 <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -49,12 +47,17 @@
                             <constraint firstAttribute="trailing" secondItem="zMl-vR-HXk" secondAttribute="trailing" id="VlN-yT-B2I"/>
                             <constraint firstItem="Q2L-Jx-EN8" firstAttribute="top" secondItem="KIp-6L-TSV" secondAttribute="top" constant="8" id="Ylv-mf-hfk"/>
                             <constraint firstItem="zMl-vR-HXk" firstAttribute="leading" secondItem="KIp-6L-TSV" secondAttribute="leading" id="d84-81-ZpO"/>
-                            <constraint firstItem="tgU-Rw-n4o" firstAttribute="top" secondItem="zMl-vR-HXk" secondAttribute="bottom" constant="4" id="e9z-Pw-i1e"/>
+                            <constraint firstItem="tgU-Rw-n4o" firstAttribute="top" secondItem="zMl-vR-HXk" secondAttribute="bottom" constant="2" id="e9z-Pw-i1e"/>
                             <constraint firstItem="Q2L-Jx-EN8" firstAttribute="leading" secondItem="KIp-6L-TSV" secondAttribute="leading" constant="5" id="etq-nM-vsr"/>
                             <constraint firstItem="tgU-Rw-n4o" firstAttribute="leading" secondItem="KIp-6L-TSV" secondAttribute="leading" id="jNp-5k-mDt"/>
-                            <constraint firstItem="zMl-vR-HXk" firstAttribute="top" secondItem="Q2L-Jx-EN8" secondAttribute="bottom" constant="8.6699999999999999" id="uWa-dq-fCv"/>
+                            <constraint firstItem="zMl-vR-HXk" firstAttribute="top" secondItem="Q2L-Jx-EN8" secondAttribute="bottom" constant="5" id="uWa-dq-fCv"/>
                             <constraint firstItem="Q2L-Jx-EN8" firstAttribute="centerX" secondItem="zMl-vR-HXk" secondAttribute="centerX" id="vgf-uh-d8a"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="1Vk-Xp-W0F"/>
+                            </mask>
+                        </variation>
                     </view>
                 </subviews>
             </view>
@@ -65,13 +68,13 @@
                 <constraint firstItem="KIp-6L-TSV" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Ect-gi-zW8"/>
                 <constraint firstItem="KIp-6L-TSV" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="xGf-jt-Bvb"/>
             </constraints>
-            <size key="customSize" width="200" height="250"/>
+            <size key="customSize" width="200" height="239"/>
             <connections>
                 <outlet property="albumLabel" destination="zMl-vR-HXk" id="QMa-ER-OoB"/>
                 <outlet property="artistLabel" destination="tgU-Rw-n4o" id="Tma-hr-tNo"/>
                 <outlet property="posterImage" destination="Q2L-Jx-EN8" id="08c-Zj-h2z"/>
             </connections>
-            <point key="canvasLocation" x="252.30769230769229" y="122.98578199052132"/>
+            <point key="canvasLocation" x="252.30769230769229" y="119.07582938388624"/>
         </collectionViewCell>
     </objects>
     <resources>
