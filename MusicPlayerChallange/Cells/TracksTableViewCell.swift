@@ -26,18 +26,16 @@ class TracksTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
     func configure(trackModel: Tracks) {
         let minsec: Double = round(((Double(trackModel.trackTimeMillis) / 1000) / 60) * 100) / 100.0
         let min: Int = (trackModel.trackTimeMillis / 1000) / 60
         let secs = round((round((minsec - Double(min)) * 100) / 100.0) * 60)
         let length = "\(min):\(Int(secs))"
         
-        
         songLabel.text = trackModel.trackName
         artistLabel.text = trackModel.artistName
         songLengthLabel.text = length
-        
-        
         
         DispatchQueue.global().async {
             guard let url = URL(string: trackModel.artworkUrl100 ?? "") else { return }

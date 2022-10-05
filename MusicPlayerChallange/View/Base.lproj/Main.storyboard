@@ -76,7 +76,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="search for music" translatesAutoresizingMaskIntoConstraints="NO" id="2FT-YQ-CRX">
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2FT-YQ-CRX">
                                 <rect key="frame" x="6" y="94" width="402" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
