@@ -15,6 +15,7 @@ class MainViewController: UIViewController {
             collectionView.delegate = self
         }
     }
+    let manager = MusicManager()
     
 
     
@@ -22,7 +23,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         collectionView.collectionViewLayout = layout
         registerCells()
-        
+        manager.performRequest()
     }
     
     let layout: UICollectionViewCompositionalLayout = {
