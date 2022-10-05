@@ -8,6 +8,11 @@
 import UIKit
 import AVKit
 
+protocol TrackMovingDelegate: class {
+    func moveBack() -> SearchViewController
+    func moveNext()
+}
+
 class PlayerViewController: UIViewController {
     
    
@@ -30,6 +35,8 @@ class PlayerViewController: UIViewController {
         return avPlayer
     }()
     
+    var playerItem: AVPlayerItem?
+    
     
     override func viewDidLoad() {
         
@@ -39,7 +46,11 @@ class PlayerViewController: UIViewController {
         ffButton.setImage(UIImage(systemName: "forward"), for: UIControl.State.normal)
         ffButton.setImage(UIImage(systemName: "forward.fill"), for: UIControl.State.highlighted)
         
-        player = AVPlayer(url: URL(fileURLWithPath: Bundle.main.path(forResource: "Hello", ofType: "mp3")!))
+        //player = AVPlayer(url: URL(fileURLWithPath: Bundle.main.path(forResource: "Hello", ofType: "mp3")!))
+        
+        let url = URL(string: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/07/13/1f/07131fb9-b212-a859-ac10-f1eeb0ff4521/mzaf_6095673758554747946.plus.aac.p.m4a")
+        let playerItem:AVPlayerItem = AVPlayerItem(url: url!)
+        player = AVPlayer(playerItem: playerItem)
 
         observePlayerTime()
     }
@@ -78,7 +89,6 @@ class PlayerViewController: UIViewController {
         player.volume = volumeSlider.value
     }
     
-    
     func observePlayerTime() {
         let interval = CMTimeMake(value: 1, timescale: 2)
         player.addPeriodicTimeObserver(forInterval: interval, queue: .main) { [weak self] (time) in
@@ -98,5 +108,7 @@ class PlayerViewController: UIViewController {
         self.slider.value = Float(percentage)
     }
     
+    @IBAction func drugDownPressed(_ sender: Any) {
+    }
 }
 

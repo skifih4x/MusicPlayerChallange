@@ -15,11 +15,13 @@ class MainViewController: UIViewController {
             collectionView.delegate = self
         }
     }
+    let manager = MusicManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.collectionViewLayout = layout
         registerCells()
+        manager.performRequest()
     }
     
     let layout: UICollectionViewCompositionalLayout = {

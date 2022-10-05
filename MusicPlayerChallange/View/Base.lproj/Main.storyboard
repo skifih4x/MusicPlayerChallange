@@ -250,19 +250,37 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWM-Nv-2TA">
+                                <rect key="frame" x="157" y="33" width="101" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="H4X-X8-jxZ"/>
+                                    <constraint firstAttribute="width" constant="101" id="ucb-Xu-bHq"/>
+                                </constraints>
+                                <color key="tintColor" red="0.10980392160000001" green="0.75294117650000003" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="chevron.compact.down" catalog="system" symbolScale="large" renderingMode="template" variableValue="0.0"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="drugDownPressed:" destination="x56-Sv-IaZ" eventType="touchUpInside" id="rWJ-ge-0hQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aMA-ff-Pib"/>
                         <color key="backgroundColor" red="0.24313725489999999" green="0.25098040700000002" blue="0.3058823645" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="X55-gG-IGP" firstAttribute="leading" secondItem="aMA-ff-Pib" secondAttribute="leading" constant="16" id="5gh-yA-I01"/>
                             <constraint firstItem="9PB-UV-m5F" firstAttribute="leading" secondItem="7KH-j0-wvh" secondAttribute="leading" constant="16" id="7uT-yP-Lk2"/>
+                            <constraint firstItem="fWM-Nv-2TA" firstAttribute="leading" secondItem="7KH-j0-wvh" secondAttribute="leading" constant="157" id="8FS-bC-Ui0"/>
                             <constraint firstItem="aMA-ff-Pib" firstAttribute="trailing" secondItem="X55-gG-IGP" secondAttribute="trailing" constant="16" id="Az2-41-tJA"/>
                             <constraint firstItem="6gF-zX-aCH" firstAttribute="leading" secondItem="aMA-ff-Pib" secondAttribute="leading" constant="16" id="HiJ-j6-ikv"/>
                             <constraint firstItem="9PB-UV-m5F" firstAttribute="top" secondItem="7KH-j0-wvh" secondAttribute="top" constant="50" id="Sk3-6F-qh6"/>
                             <constraint firstItem="vNh-T1-FTx" firstAttribute="top" secondItem="6gF-zX-aCH" secondAttribute="bottom" constant="116" id="XQl-10-2zh"/>
                             <constraint firstItem="6gF-zX-aCH" firstAttribute="top" secondItem="9PB-UV-m5F" secondAttribute="bottom" constant="8" symbolic="YES" id="af8-yQ-B7f"/>
                             <constraint firstItem="6gF-zX-aCH" firstAttribute="centerX" secondItem="7KH-j0-wvh" secondAttribute="centerX" id="aoh-Qi-tF4"/>
+                            <constraint firstItem="fWM-Nv-2TA" firstAttribute="top" secondItem="7KH-j0-wvh" secondAttribute="top" constant="33" id="bKy-x3-aGK"/>
                             <constraint firstItem="aMA-ff-Pib" firstAttribute="bottom" secondItem="X55-gG-IGP" secondAttribute="bottom" constant="30" id="cGv-yM-xZl"/>
+                            <constraint firstAttribute="trailing" secondItem="fWM-Nv-2TA" secondAttribute="trailing" constant="156" id="grN-7g-sA7"/>
                             <constraint firstAttribute="trailing" secondItem="9PB-UV-m5F" secondAttribute="trailing" constant="16" id="vCS-0N-ffn"/>
                             <constraint firstItem="vNh-T1-FTx" firstAttribute="leading" secondItem="aMA-ff-Pib" secondAttribute="leading" constant="16" id="w81-Sb-La0"/>
                             <constraint firstItem="aMA-ff-Pib" firstAttribute="trailing" secondItem="vNh-T1-FTx" secondAttribute="trailing" constant="16" id="xl3-aG-8aZ"/>
@@ -319,6 +337,7 @@
     </scenes>
     <resources>
         <image name="backward" catalog="system" width="128" height="77"/>
+        <image name="chevron.compact.down" catalog="system" width="128" height="42"/>
         <image name="forward" catalog="system" width="128" height="77"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
