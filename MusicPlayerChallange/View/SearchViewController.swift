@@ -73,6 +73,9 @@ extension SearchViewController: UISearchBarDelegate {
             timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { [weak self] _ in
                 self?.fetchSong(songName: searchText)
             })
+        } else if searchBar.text?.count == 0 {
+            tracks = []
+             tableView.reloadData()
         }
     }
 }
