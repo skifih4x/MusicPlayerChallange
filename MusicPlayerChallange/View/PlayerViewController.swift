@@ -8,7 +8,7 @@
 import UIKit
 import AVKit
 
-protocol TrackMovingDelegate: class {
+protocol TrackMovingDelegate: AnyObject {
     func moveBack() -> SearchViewController
     func moveNext()
 }
@@ -60,9 +60,9 @@ class PlayerViewController: UIViewController {
         ffButton.setImage(UIImage(systemName: "forward"), for: UIControl.State.normal)
         ffButton.setImage(UIImage(systemName: "forward.fill"), for: UIControl.State.highlighted)
         
-        let url = URL(string: trackURL)
+        guard let url = URL(string: trackURL) else { return }
         print(trackURL)
-        let playerItem:AVPlayerItem = AVPlayerItem(url: url!)
+        let playerItem:AVPlayerItem = AVPlayerItem(url: url)
         player = AVPlayer(playerItem: playerItem)
         player.play()
         observePlayerTime()
@@ -73,12 +73,12 @@ class PlayerViewController: UIViewController {
         trackTitleLabel.text = trackName
 
         let string600 = self.trackImage.replacingOccurrences(of: "100x100", with: "350x350")
-        let url = URL(string: string600)
+        guard let url = URL(string: string600) else { return }
 
         DispatchQueue.global().async {
-            let data = try? Data(contentsOf: url!)
+            guard let data = try? Data(contentsOf: url) else { return }
             DispatchQueue.main.async {
-                self.trackImageView.image = UIImage(data: data!)
+                self.trackImageView.image = UIImage(data: data)
             }
         }
         
