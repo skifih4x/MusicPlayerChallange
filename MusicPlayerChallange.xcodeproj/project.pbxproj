@@ -31,7 +31,6 @@
 		97B0FCA628EDDFCF00326BBC /* TrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B0FCA528EDDFCF00326BBC /* TrackModel.swift */; };
 		97B0FCA828EDE00E00326BBC /* CMTime + Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B0FCA728EDE00E00326BBC /* CMTime + Extention.swift */; };
 		97B0FCAA28EDE02000326BBC /* MusicURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B0FCA928EDE02000326BBC /* MusicURL.swift */; };
-		97B0FCAC28EE148D00326BBC /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B0FCAB28EE148D00326BBC /* Protocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,7 +60,6 @@
 		97B0FCA528EDDFCF00326BBC /* TrackModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackModel.swift; sourceTree = "<group>"; };
 		97B0FCA728EDE00E00326BBC /* CMTime + Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CMTime + Extention.swift"; sourceTree = "<group>"; };
 		97B0FCA928EDE02000326BBC /* MusicURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicURL.swift; sourceTree = "<group>"; };
-		97B0FCAB28EE148D00326BBC /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +112,6 @@
 				37804FB928DA64F300EB2EFD /* PlayerViewController.swift */,
 				97B0FCA728EDE00E00326BBC /* CMTime + Extention.swift */,
 				37DD14EC28ECCDA700AEFAAE /* AlbumViewController.swift */,
-				97B0FCAB28EE148D00326BBC /* Protocol.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -270,7 +267,6 @@
 				37804FBA28DA64F300EB2EFD /* PlayerViewController.swift in Sources */,
 				37804FB828DA64D200EB2EFD /* SearchViewController.swift in Sources */,
 				0019593F28D91599005891EE /* MainViewController.swift in Sources */,
-				97B0FCAC28EE148D00326BBC /* Protocol.swift in Sources */,
 				37804FBD28DA679000EB2EFD /* ContentCell.swift in Sources */,
 				0019593B28D91599005891EE /* AppDelegate.swift in Sources */,
 				37804FFD28DFA8D700EB2EFD /* Constants.swift in Sources */,

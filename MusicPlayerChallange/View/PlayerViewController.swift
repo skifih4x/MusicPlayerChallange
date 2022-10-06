@@ -14,11 +14,6 @@ protocol TrackMovingDelegate: AnyObject {
 }
 
 class PlayerViewController: UIViewController {
-    
-    var mediaObject: Collectable? = nil
-    
-   
-
 
     //MARK: - Buttons IBOutlets
     
@@ -71,6 +66,8 @@ class PlayerViewController: UIViewController {
     
     func set() {
         trackTitleLabel.text = trackName
+        authorTitleLabel.text = authorName
+
 
         let string600 = self.trackImage.replacingOccurrences(of: "100x100", with: "350x350")
         guard let url = URL(string: string600) else { return }
@@ -83,11 +80,7 @@ class PlayerViewController: UIViewController {
         }
         
         
-        authorTitleLabel.text = authorName
         
-//
-//        let string600 = viewModel.artworkUrl100?.replacingOccurrences(of: "100x100", with: "600x600")
-//        print(string600)
     }
     
     
