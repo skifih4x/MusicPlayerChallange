@@ -126,6 +126,7 @@ extension MainViewController: UICollectionViewDelegate {
                 switch result {
                 case .success(let success):
                     print(success.results[indexPath.row].collectionId)
+                    print("https://itunes.apple.com/lookup?id=\(success.results[indexPath.row].collectionId)&entity=song")
                 case .failure(let failure):
                     print(failure.localizedDescription)
                 }
