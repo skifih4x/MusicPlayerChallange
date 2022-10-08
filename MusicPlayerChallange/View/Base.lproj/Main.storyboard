@@ -72,7 +72,7 @@
         <!--Search-->
         <scene sceneID="3qs-Ed-UMy">
             <objects>
-                <viewController title="Search" id="gUO-CY-gCE" userLabel="Search" customClass="SearchViewController" customModule="MusicPlayerChallange" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchViewController" title="Search" id="gUO-CY-gCE" userLabel="Search" customClass="SearchViewController" customModule="MusicPlayerChallange" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dab-NZ-msx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -224,21 +224,13 @@
         <!--Player-->
         <scene sceneID="Jgv-J4-wlt">
             <objects>
-                <viewController id="x56-Sv-IaZ" userLabel="Player" customClass="PlayerViewController" customModule="MusicPlayerChallange" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="PlayerViewController" storyboardIdentifier="PlayerViewController" modalPresentationStyle="fullScreen" id="x56-Sv-IaZ" userLabel="Player" customClass="PlayerViewController" customModule="MusicPlayerChallange" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7KH-j0-wvh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Charts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9PB-UV-m5F">
-                                <rect key="frame" x="16" y="50" width="382" height="42"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="sPk-bE-JKR"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
-                                <color key="textColor" red="0.1092822313" green="0.75441883480000005" blue="0.57553090289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="252" image="posterImage" translatesAutoresizingMaskIntoConstraints="NO" id="6gF-zX-aCH">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="252" ambiguous="YES" image="posterImage" translatesAutoresizingMaskIntoConstraints="NO" id="6gF-zX-aCH">
                                 <rect key="frame" x="16" y="100" width="382" height="250"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -246,17 +238,17 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vNh-T1-FTx" userLabel="Artist and Song Stack View">
-                                <rect key="frame" x="16" y="466" width="382" height="50"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vNh-T1-FTx" userLabel="Artist and Song Stack View">
+                                <rect key="frame" x="20" y="370" width="378" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Nothing Else Matters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2Z-Vr-KkH" userLabel="Song Label">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="25"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="378" height="25"/>
                                         <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="21"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Metallica" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tjy-5C-aR9" userLabel="Artist Label">
-                                        <rect key="frame" x="0.0" y="35" width="382" height="15"/>
+                                        <rect key="frame" x="0.0" y="35" width="378" height="15"/>
                                         <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -354,9 +346,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWM-Nv-2TA">
-                                <rect key="frame" x="157" y="33" width="101" height="24"/>
+                                <rect key="frame" x="157" y="33" width="101" height="59"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="H4X-X8-jxZ"/>
+                                    <constraint firstAttribute="height" constant="59" id="H4X-X8-jxZ"/>
                                     <constraint firstAttribute="width" constant="101" id="ucb-Xu-bHq"/>
                                 </constraints>
                                 <color key="tintColor" red="0.10980392160000001" green="0.75294117650000003" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -373,19 +365,15 @@
                         <color key="backgroundColor" red="0.24313725489999999" green="0.25098040700000002" blue="0.3058823645" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="X55-gG-IGP" firstAttribute="leading" secondItem="aMA-ff-Pib" secondAttribute="leading" constant="16" id="5gh-yA-I01"/>
-                            <constraint firstItem="9PB-UV-m5F" firstAttribute="leading" secondItem="7KH-j0-wvh" secondAttribute="leading" constant="16" id="7uT-yP-Lk2"/>
                             <constraint firstItem="fWM-Nv-2TA" firstAttribute="leading" secondItem="7KH-j0-wvh" secondAttribute="leading" constant="157" id="8FS-bC-Ui0"/>
                             <constraint firstItem="aMA-ff-Pib" firstAttribute="trailing" secondItem="X55-gG-IGP" secondAttribute="trailing" constant="16" id="Az2-41-tJA"/>
                             <constraint firstItem="6gF-zX-aCH" firstAttribute="leading" secondItem="aMA-ff-Pib" secondAttribute="leading" constant="16" id="HiJ-j6-ikv"/>
-                            <constraint firstItem="9PB-UV-m5F" firstAttribute="top" secondItem="7KH-j0-wvh" secondAttribute="top" constant="50" id="Sk3-6F-qh6"/>
-                            <constraint firstItem="vNh-T1-FTx" firstAttribute="top" secondItem="6gF-zX-aCH" secondAttribute="bottom" constant="116" id="XQl-10-2zh"/>
-                            <constraint firstItem="6gF-zX-aCH" firstAttribute="top" secondItem="9PB-UV-m5F" secondAttribute="bottom" constant="8" symbolic="YES" id="af8-yQ-B7f"/>
+                            <constraint firstItem="vNh-T1-FTx" firstAttribute="top" secondItem="6gF-zX-aCH" secondAttribute="bottom" constant="20" id="XQl-10-2zh"/>
                             <constraint firstItem="6gF-zX-aCH" firstAttribute="centerX" secondItem="7KH-j0-wvh" secondAttribute="centerX" id="aoh-Qi-tF4"/>
                             <constraint firstItem="fWM-Nv-2TA" firstAttribute="top" secondItem="7KH-j0-wvh" secondAttribute="top" constant="33" id="bKy-x3-aGK"/>
                             <constraint firstItem="aMA-ff-Pib" firstAttribute="bottom" secondItem="X55-gG-IGP" secondAttribute="bottom" constant="30" id="cGv-yM-xZl"/>
                             <constraint firstAttribute="trailing" secondItem="fWM-Nv-2TA" secondAttribute="trailing" constant="156" id="grN-7g-sA7"/>
-                            <constraint firstAttribute="trailing" secondItem="9PB-UV-m5F" secondAttribute="trailing" constant="16" id="vCS-0N-ffn"/>
-                            <constraint firstItem="vNh-T1-FTx" firstAttribute="leading" secondItem="aMA-ff-Pib" secondAttribute="leading" constant="16" id="w81-Sb-La0"/>
+                            <constraint firstItem="vNh-T1-FTx" firstAttribute="leading" secondItem="aMA-ff-Pib" secondAttribute="leading" constant="20" id="w81-Sb-La0"/>
                             <constraint firstItem="aMA-ff-Pib" firstAttribute="trailing" secondItem="vNh-T1-FTx" secondAttribute="trailing" constant="16" id="xl3-aG-8aZ"/>
                         </constraints>
                     </view>
@@ -394,12 +382,15 @@
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="Bqe-ZH-pdK"/>
                     <connections>
+                        <outlet property="authorTitleLabel" destination="Tjy-5C-aR9" id="d1A-3o-xET"/>
                         <outlet property="durationTime" destination="55s-2m-jIW" id="p77-Dw-jz9"/>
                         <outlet property="ffButton" destination="YOI-08-hlI" id="Dud-9c-bOX"/>
                         <outlet property="labelTime" destination="Wsi-bc-L0B" id="ew0-qf-Dz7"/>
                         <outlet property="playButton" destination="Uhg-Xk-tQx" id="Jxd-K5-UJ0"/>
                         <outlet property="rwButton" destination="tok-Np-DaG" id="L2g-Dn-C4r"/>
                         <outlet property="slider" destination="fOj-zJ-ONE" id="jwP-z6-U5H"/>
+                        <outlet property="trackImageView" destination="6gF-zX-aCH" id="pbB-Ma-gtl"/>
+                        <outlet property="trackTitleLabel" destination="I2Z-Vr-KkH" id="6Ai-BJ-5en"/>
                         <outlet property="volumeSlider" destination="Egg-Fq-pAD" id="ogK-DL-yoU"/>
                     </connections>
                 </viewController>
@@ -407,7 +398,7 @@
             </objects>
             <point key="canvasLocation" x="1130.4347826086957" y="745.3125"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="Mpt-iu-RbH">
             <objects>
                 <tabBarController id="nqd-mb-VsI" sceneMemberID="viewController">
@@ -436,7 +427,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="RtC-w6-ovd" kind="relationship" relationship="viewControllers" id="wHd-Ue-QfJ"/>
-                        <segue destination="x56-Sv-IaZ" kind="relationship" relationship="viewControllers" id="9pQ-Z0-V7H"/>
                         <segue destination="gUO-CY-gCE" kind="relationship" relationship="viewControllers" id="56U-9d-Z9D"/>
                     </connections>
                 </tabBarController>

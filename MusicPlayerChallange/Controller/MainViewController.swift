@@ -117,7 +117,8 @@ extension MainViewController: UICollectionViewDataSource {
 extension MainViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+//        let vc = storyboard?.instantiateViewController(withIdentifier: "PlayerViewController") as? PlayerViewController
+//        self.navigationController?.pushViewController(vc!, animated: true)
         switch indexPath.section {
         case 0:
             NetworkFetch.shared.albumeFetchRammstein { result in
