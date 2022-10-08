@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVKit
 
 class TracksTableViewCell: UITableViewCell {
 
@@ -28,10 +29,12 @@ class TracksTableViewCell: UITableViewCell {
     }
     
     func configure(trackModel: Tracks) {
-        let minsec: Double = round(((Double(trackModel.trackTimeMillis) / 1000) / 60) * 100) / 100.0
-        let min: Int = (trackModel.trackTimeMillis / 1000) / 60
-        let secs = round((round((minsec - Double(min)) * 100) / 100.0) * 60)
-        let length = "\(min):\(Int(secs))"
+        
+        let seconds = trackModel.trackTimeMillis / 1000
+        let minutes = seconds / 60
+        let secondsFinal = String(format: "%02d", seconds - (minutes * 60))
+        let length = "\(minutes):\(secondsFinal)"
+
         
         songLabel.text = trackModel.trackName
         artistLabel.text = trackModel.artistName
@@ -48,4 +51,23 @@ class TracksTableViewCell: UITableViewCell {
             }
         }
     }
+
+//    func configureAlbum(albumModel: ResultsAlbum) {
+//        songLabel.text = albumModel.
+//        artistLabel.text = albumModel.artistName
+//        songLengthLabel.text = length
+//        
+//        DispatchQueue.global().async {
+//            guard let url = URL(string: trackModel.artworkUrl100 ?? "") else { return }
+//            guard let imageData = try? Data(contentsOf: url) else { return }
+//            DispatchQueue.main.async {
+//                self.albumCover.image = UIImage(data: imageData)
+//                self.albumCover.layer.cornerRadius = 10
+//                self.albumCover.layer.borderWidth = 2
+//                self.albumCover.layer.borderColor = CGColor.init(red: 255, green: 255, blue: 255, alpha: 0.5)
+//            }
+//        }
+//    }
+    
+    
 }

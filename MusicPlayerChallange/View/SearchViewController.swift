@@ -21,8 +21,9 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         // text properties for the seaxrch bar
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
-            textfield.attributedPlaceholder = NSAttributedString(string: textfield.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+            textfield.attributedPlaceholder = NSAttributedString(string: textfield.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
             textfield.textColor = UIColor.white
+            searchBar.placeholder = "Search"
         }
         
         tableView.delegate = self
@@ -84,12 +85,17 @@ extension SearchViewController: UITableViewDelegate {
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchBar.placeholder = "Search"
-        if searchText != ""  {
+//        searchBar.placeholder = "Search"
+        let text = searchText.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        
+        if text != ""  {
             timer?.invalidate()
             timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { [weak self] _ in
-                self?.fetchSong(songName: searchText)
+                self?.fetchSong(songName: text!)
             })
+        } else if searchBar.text?.count == 0 {
+            tracks = []
+             tableView.reloadData()
         }
     }
 }
