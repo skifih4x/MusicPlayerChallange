@@ -15,8 +15,6 @@ protocol TrackMovingDelegate: AnyObject {
 
 class TrackDetalViewController: UIView {
     
-    var mediaObject: Collectable? = nil
-    
     @IBOutlet weak var rwButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var ffButton: UIButton!
