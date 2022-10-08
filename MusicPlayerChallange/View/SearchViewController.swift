@@ -15,8 +15,8 @@ class SearchViewController: UIViewController {
     var tracks = [Tracks]()
     var timer: Timer?
     var playerView = PlayerViewController()
-    
-    
+    weak var tabBarDelegate: MainTabBarControllerDelegate?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // text properties for the search bar
@@ -64,18 +64,19 @@ extension SearchViewController: UITableViewDataSource {
 }
 
 extension SearchViewController: UITableViewDelegate {
-    //var playerView = PlayerViewController
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "PlayerViewController") as? PlayerViewController
-        self.navigationController?.pushViewController(vc!, animated: true)
-        
         let track = tracks[indexPath.row]
+        print("cellViewModel.trackName:", track.trackName)
         
-        vc?.trackName = track.trackName
-        vc?.authorName = track.artistName
-        vc?.trackImage = track.artworkUrl100 ?? "NA"
-        vc?.trackURL = track.previewUrl ?? "NA"
-
+                let window = UIApplication.shared.keyWindow
+                let trackDetailsView = Bundle.main.loadNibNamed("TrackDetailView", owner: self)?.first as! TrackDetalViewController
+                trackDetailsView.set(viewModel: track)
+                trackDetailsView.delegate = self
+                window?.addSubview(trackDetailsView)
+        
+//                let vc = storyboard?.instantiateViewController(withIdentifier: "PlayerViewController") as? PlayerViewController
+//                self.navigationController?.pushViewController(vc!, animated: true)
+        tabBarDelegate?.maximazeTrackDetailController(viewModel: track )
     }
     
 }
@@ -91,4 +92,41 @@ extension SearchViewController: UISearchBarDelegate {
             })
         }
     }
+}
+
+extension SearchViewController: TrackMovingDelegate {
+    
+    func getTrack(isForwardTrack: Bool) -> Tracks? {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return nil}
+        tableView.deselectRow(at: indexPath, animated: true)
+        var nextIndexPath: IndexPath!
+        if isForwardTrack {
+            nextIndexPath = IndexPath(row: indexPath.row + 1, section: indexPath.section)
+            if nextIndexPath.row == tracks.count {
+                nextIndexPath.row = 0
+            }
+        } else {
+            nextIndexPath = IndexPath(row: indexPath.row - 1, section: indexPath.section)
+            if nextIndexPath.row == -1 {
+                nextIndexPath.row = tracks.count - 1
+            }
+        }
+        
+        tableView.selectRow(at: nextIndexPath, animated: true, scrollPosition: .none)
+        let cellViewModel = tracks[indexPath.row]
+        print(cellViewModel.trackName)
+        return cellViewModel
+    }
+    
+    func moveBack() -> Tracks? {
+        print("go back")
+        return getTrack(isForwardTrack: false)
+    }
+    
+    func moveNext() -> Tracks? {
+        print("go forward")
+        return getTrack(isForwardTrack: true)
+    }
+    
+    
 }

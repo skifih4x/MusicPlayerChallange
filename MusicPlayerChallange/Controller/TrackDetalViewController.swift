@@ -1,21 +1,21 @@
 //
-//  SearchViewController.swift
+//  TrackDetalViewController.swift
 //  MusicPlayerChallange
 //
-//  Created by Alexander Altman on 21.09.2022.
+//  Created by Артем Орлов on 06.10.2022.
 //
 
 import UIKit
 import AVKit
 
-//protocol TrackMovingDelegate: AnyObject {
-//    func moveBack() -> SearchViewController
-//    func moveNext()
-//}
+protocol TrackMovingDelegate: AnyObject {
+    func moveBack() -> Tracks?
+    func moveNext() -> Tracks?
+}
 
-class PlayerViewController: UIViewController {
-
-    //MARK: - Buttons IBOutlets
+class TrackDetalViewController: UIView {
+    
+    var mediaObject: Collectable? = nil
     
     @IBOutlet weak var rwButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
@@ -29,13 +29,8 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var authorTitleLabel: UILabel!
     @IBOutlet weak var volumeSlider: UISlider!
     
-    var trackName: String = ""
-    var authorName: String = ""
-    var trackImage: String = ""
-    var trackURL: String = ""
-    
-    
     var tracks = [Tracks]()
+
     
     var player: AVPlayer = {
         var avPlayer = AVPlayer()
@@ -43,34 +38,23 @@ class PlayerViewController: UIViewController {
         return avPlayer
     }()
     
-    var playerItem: AVPlayerItem?
+    weak var delegate: TrackMovingDelegate?
+    weak var tabBarDelegate: MainTabBarControllerDelegate?
     
-    
-    override func viewDidLoad() {
-        set()
-        
+    override func awakeFromNib() {
+        super.awakeFromNib()
         rwButton.setImage(UIImage(systemName: "backward"), for: UIControl.State.normal)
         rwButton.setImage(UIImage(systemName: "backward.fill"), for: UIControl.State.highlighted)
 
         ffButton.setImage(UIImage(systemName: "forward"), for: UIControl.State.normal)
         ffButton.setImage(UIImage(systemName: "forward.fill"), for: UIControl.State.highlighted)
-        
-        guard let url = URL(string: trackURL) else { return }
-        print(trackURL)
-        let playerItem:AVPlayerItem = AVPlayerItem(url: url)
-        player = AVPlayer(playerItem: playerItem)
-        player.play()
-        observePlayerTime()
     }
     
-    
-    func set() {
-        trackTitleLabel.text = trackName
-        authorTitleLabel.text = authorName
-
-
-        let string600 = self.trackImage.replacingOccurrences(of: "100x100", with: "350x350")
-        guard let url = URL(string: string600) else { return }
+    func set(viewModel: Tracks) {
+        trackTitleLabel.text = viewModel.trackName
+        authorTitleLabel.text = viewModel.artistName
+        let string600 = viewModel.artworkUrl100?.replacingOccurrences(of: "100x100", with: "350x350")
+        guard let url = URL(string: string600 ?? "") else { return }
 
         DispatchQueue.global().async {
             guard let data = try? Data(contentsOf: url) else { return }
@@ -78,15 +62,21 @@ class PlayerViewController: UIViewController {
                 self.trackImageView.image = UIImage(data: data)
             }
         }
-        
-        
-        
+        playTrack(previewUrl: viewModel.previewUrl)
+        observePlayerTime()
+        updateCurrentTime()
+    }
+    func playTrack(previewUrl: String?) {
+        guard let url = URL(string: previewUrl ?? "") else { return }
+        let playerItem:AVPlayerItem = AVPlayerItem(url: url)
+        player = AVPlayer(playerItem: playerItem)
+        player.play()
     }
     
-    
-    //MARK: - Buttons IBActions
-    
     @IBAction func rwButtonPressed(_ sender: UIButton) {
+        let cellViewModel = delegate?.moveBack()
+        guard let cellInfo = cellViewModel else { return }
+        set(viewModel: cellInfo)
     }
     
     @IBAction func playButtonPressed(_ sender: UIButton) {
@@ -100,19 +90,19 @@ class PlayerViewController: UIViewController {
     }
     
     @IBAction func ffButtonPressed(_ sender: UIButton) {
+        let cellViewModel = delegate?.moveNext()
+        guard let cellInfo = cellViewModel else { return }
+        set(viewModel: cellInfo)
     }
     
-    @IBAction func sliderAction(_ sender: Any) {
+    @IBAction func sliderAction(_ sender: Any)  {
         let percentage = slider.value
         guard let duration = player.currentItem?.duration else { return }
         let durationInSeconds = CMTimeGetSeconds(duration)
         let seekTimeUnSeconds = Float64(percentage) * durationInSeconds
         let seekTime = CMTimeMakeWithSeconds(seekTimeUnSeconds, preferredTimescale: 1)
         player.seek(to: seekTime)
-        
     }
-    
-    
     @IBAction func handlerVolumeSlider(_ sender: Any) {
         player.volume = volumeSlider.value
     }
@@ -137,7 +127,8 @@ class PlayerViewController: UIViewController {
     }
     
     @IBAction func drugDownPressed(_ sender: Any) {
-        //self.removeFromSuperview()
+        tabBarDelegate?.minimazeTrackDetailController()
+        self.removeFromSuperview()
+        print("хуй")
     }
 }
-
