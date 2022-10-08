@@ -19,7 +19,7 @@ class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // text properties for the search bar
+        // text properties for the seaxrch bar
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
             textfield.attributedPlaceholder = NSAttributedString(string: textfield.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
             textfield.textColor = UIColor.white
