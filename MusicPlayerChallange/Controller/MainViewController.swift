@@ -142,5 +142,6 @@ extension MainViewController: UICollectionViewDelegate {
             }
         }
         performSegue(withIdentifier: "ShowDetailsAlbum", sender: nil)
+        
     }
 }

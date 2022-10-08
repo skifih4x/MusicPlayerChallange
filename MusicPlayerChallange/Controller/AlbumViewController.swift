@@ -18,17 +18,24 @@ class AlbumViewController: UIViewController {
     
     //MARK: - Variables & Constants
     var tracks = [Tracks]()
+    var collectionId = Int()
     
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
         albumTableView.delegate = self
         albumTableView.dataSource = self
         albumTableView.register(UINib(nibName: C.trackCellNibName, bundle: nil), forCellReuseIdentifier: C.tracksListCellIdentifier)
         
+//        albumName.text =
+//        artistName.text =
+//        albumCover.image =
+//        yearAndTrackQty.text =
+        
     }
-    
-    private func fetchSong(songName: String) {
-        let urlString = "https://itunes.apple.com/search?entity=song&term=\(songName)"
+    // https://itunes.apple.com/search?term=nevermind&entity=album&attribute=albumTerm
+    // https://itunes.apple.com/lookup?upc=778360335&entity=song
+    private func fetchAlbum(collectionId: Int) {
+        let urlString = "https://itunes.apple.com/search?entity=song&term=\(collectionId)"
         print(urlString)
         NetworkFetch.shared.songFetch(urlString: urlString) { [weak self] trackModel, error in
             if error == nil {
@@ -53,7 +60,6 @@ extension AlbumViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: C.tracksListCellIdentifier, for: indexPath) as! TracksTableViewCell
         let track = tracks[indexPath.row]
         cell.configure(trackModel: track)
-        
         return cell
     }
 }

@@ -123,8 +123,6 @@
 				37804FB928DA64F300EB2EFD /* PlayerViewController.swift */,
 				97B0FCA728EDE00E00326BBC /* CMTime + Extention.swift */,
 				37DD14EC28ECCDA700AEFAAE /* AlbumViewController.swift */,
-				97B0FCAB28EE148D00326BBC /* Protocol.swift */,
-				00428FB828EF2BA4007580CA /* TrackDetailView.xib */,
 				00428FBA28EF2BBA007580CA /* TrackDetalViewController.swift */,
 			);
 			path = Controller;
@@ -134,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				0019594028D91599005891EE /* Main.storyboard */,
+				00428FB828EF2BA4007580CA /* TrackDetailView.xib */,
 				0019594528D9159A005891EE /* LaunchScreen.storyboard */,
 				0000CB2028F03A5A005C81CD /* Nib.swift */,
 			);

@@ -14,7 +14,7 @@ import AVKit
 //}
 
 class PlayerViewController: UIViewController {
-
+    
     //MARK: - Buttons IBOutlets
     
     @IBOutlet weak var rwButton: UIButton!
@@ -23,7 +23,7 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var labelTime: UILabel!
     @IBOutlet weak var durationTime: UILabel!
     @IBOutlet weak var slider: UISlider!
-    
+    @IBOutlet weak var dismissButton: UIButton!
     @IBOutlet weak var trackImageView: UIImageView!
     @IBOutlet weak var trackTitleLabel: UILabel!
     @IBOutlet weak var authorTitleLabel: UILabel!
@@ -51,7 +51,7 @@ class PlayerViewController: UIViewController {
         
         rwButton.setImage(UIImage(systemName: "backward"), for: UIControl.State.normal)
         rwButton.setImage(UIImage(systemName: "backward.fill"), for: UIControl.State.highlighted)
-
+        
         ffButton.setImage(UIImage(systemName: "forward"), for: UIControl.State.normal)
         ffButton.setImage(UIImage(systemName: "forward.fill"), for: UIControl.State.highlighted)
         
@@ -67,11 +67,11 @@ class PlayerViewController: UIViewController {
     func set() {
         trackTitleLabel.text = trackName
         authorTitleLabel.text = authorName
-
-
+        
+        
         let string600 = self.trackImage.replacingOccurrences(of: "100x100", with: "350x350")
         guard let url = URL(string: string600) else { return }
-
+        
         DispatchQueue.global().async {
             guard let data = try? Data(contentsOf: url) else { return }
             DispatchQueue.main.async {
@@ -137,7 +137,10 @@ class PlayerViewController: UIViewController {
     }
     
     @IBAction func drugDownPressed(_ sender: Any) {
-        //self.removeFromSuperview()
+        dismiss(animated: true)
     }
+    
+
+    
 }
 

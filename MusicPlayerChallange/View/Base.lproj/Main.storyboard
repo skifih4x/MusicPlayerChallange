@@ -120,6 +120,7 @@
                     <connections>
                         <outlet property="searchBar" destination="2FT-YQ-CRX" id="ate-HY-4Q4"/>
                         <outlet property="tableView" destination="iaa-nT-HDx" id="VZC-Lg-idE"/>
+                        <segue destination="x56-Sv-IaZ" kind="presentation" identifier="goToPlayer" modalPresentationStyle="fullScreen" id="XgQ-cr-bDv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3DP-Hb-hzt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -226,8 +227,7 @@
             <objects>
                 <viewController restorationIdentifier="PlayerViewController" storyboardIdentifier="PlayerViewController" modalPresentationStyle="fullScreen" id="x56-Sv-IaZ" userLabel="Player" customClass="PlayerViewController" customModule="MusicPlayerChallange" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7KH-j0-wvh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
-
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="252" ambiguous="YES" image="posterImage" translatesAutoresizingMaskIntoConstraints="NO" id="6gF-zX-aCH">
@@ -259,7 +259,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="X55-gG-IGP" userLabel="Button Stack View">
-                                <rect key="frame" x="16" y="625" width="382" height="70"/>
+                                <rect key="frame" x="16" y="762" width="382" height="70"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tok-Np-DaG" userLabel="RW Button">
                                         <rect key="frame" x="0.0" y="5" width="114" height="60"/>
@@ -383,6 +383,7 @@
                     <navigationItem key="navigationItem" id="Bqe-ZH-pdK"/>
                     <connections>
                         <outlet property="authorTitleLabel" destination="Tjy-5C-aR9" id="d1A-3o-xET"/>
+                        <outlet property="dismissButton" destination="fWM-Nv-2TA" id="3eF-Vc-Xxv"/>
                         <outlet property="durationTime" destination="55s-2m-jIW" id="p77-Dw-jz9"/>
                         <outlet property="ffButton" destination="YOI-08-hlI" id="Dud-9c-bOX"/>
                         <outlet property="labelTime" destination="Wsi-bc-L0B" id="ew0-qf-Dz7"/>
@@ -398,7 +399,7 @@
             </objects>
             <point key="canvasLocation" x="1130.4347826086957" y="745.3125"/>
         </scene>
-        <!--Main Tab Bar Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="Mpt-iu-RbH">
             <objects>
                 <tabBarController id="nqd-mb-VsI" sceneMemberID="viewController">
