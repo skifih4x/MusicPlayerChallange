@@ -110,7 +110,8 @@ extension MainViewController: UICollectionViewDataSource {
         view.title = indexPath.section == 1 ? "Music to listen" : "Recently viewed"
         return view
     }
-
+    
+  
 }
 
 extension MainViewController: UICollectionViewDelegate {
@@ -139,5 +140,6 @@ extension MainViewController: UICollectionViewDelegate {
                 }
             }
         }
+        performSegue(withIdentifier: "ShowDetailsAlbum", sender: nil)
     }
 }

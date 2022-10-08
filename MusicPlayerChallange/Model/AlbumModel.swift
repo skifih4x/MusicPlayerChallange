@@ -17,4 +17,5 @@ struct ResultsAlbum: Decodable {
     let artworkUrl100: String?
     let trackCount: Int
     let collectionName: String
+    
 }

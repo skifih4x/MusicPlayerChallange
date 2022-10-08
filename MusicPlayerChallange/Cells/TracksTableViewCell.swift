@@ -51,4 +51,23 @@ class TracksTableViewCell: UITableViewCell {
             }
         }
     }
+
+//    func configureAlbum(albumModel: ResultsAlbum) {
+//        songLabel.text = albumModel.
+//        artistLabel.text = albumModel.artistName
+//        songLengthLabel.text = length
+//        
+//        DispatchQueue.global().async {
+//            guard let url = URL(string: trackModel.artworkUrl100 ?? "") else { return }
+//            guard let imageData = try? Data(contentsOf: url) else { return }
+//            DispatchQueue.main.async {
+//                self.albumCover.image = UIImage(data: imageData)
+//                self.albumCover.layer.cornerRadius = 10
+//                self.albumCover.layer.borderWidth = 2
+//                self.albumCover.layer.borderColor = CGColor.init(red: 255, green: 255, blue: 255, alpha: 0.5)
+//            }
+//        }
+//    }
+    
+    
 }
