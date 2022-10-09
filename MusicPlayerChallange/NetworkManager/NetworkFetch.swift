@@ -67,12 +67,12 @@ struct NetworkFetch {
     }
     
     
-    func albumFetch(urlString: String, response: @escaping (AlbumModel?, Error?) -> Void) {
+    func albumFetch(urlString: String, response: @escaping (AlbumModelCell?, Error?) -> Void) {
         DataFetch.shared.fetchData(urlString: urlString) { result in
             switch result {
             case .success(let data):
                 do {
-                    let results = try JSONDecoder().decode(AlbumModel.self, from: data)
+                    let results = try JSONDecoder().decode(AlbumModelCell.self, from: data)
                     response(results, nil )
                 } catch let jsonError {
                     print("Failed to decode JSON", jsonError)

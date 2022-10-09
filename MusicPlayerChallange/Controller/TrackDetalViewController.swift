@@ -64,6 +64,22 @@ class TrackDetalViewController: UIView {
         observePlayerTime()
         updateCurrentTime()
     }
+    func set(viewModelAlbume: ResultsAlbumCell) {
+        trackTitleLabel.text = viewModelAlbume.trackName
+        authorTitleLabel.text = viewModelAlbume.artistName
+        let string600 = viewModelAlbume.artworkUrl100?.replacingOccurrences(of: "100x100", with: "350x350")
+        guard let url = URL(string: string600 ?? "") else { return }
+
+        DispatchQueue.global().async {
+            guard let data = try? Data(contentsOf: url) else { return }
+            DispatchQueue.main.async {
+                self.trackImageView.image = UIImage(data: data)
+            }
+        }
+        playTrack(previewUrl: viewModelAlbume.previewUrl)
+        observePlayerTime()
+        updateCurrentTime()
+    }
     func playTrack(previewUrl: String?) {
         guard let url = URL(string: previewUrl ?? "") else { return }
         let playerItem:AVPlayerItem = AVPlayerItem(url: url)

@@ -19,6 +19,7 @@ class AlbumViewController: UIViewController {
     //MARK: - Variables & Constants
     var tracks = [Tracks]()
     var album = [ResultsAlbum]()
+    var resultAlbume = [ResultsAlbumCell]()
     var collectionId: Int = 0
     var albumNamee: String = ""
     var artistNamee: String = ""
@@ -32,14 +33,14 @@ class AlbumViewController: UIViewController {
         super.viewDidLoad()
         albumTableView.delegate = self
         albumTableView.dataSource = self
-        albumTableView.register(UINib(nibName: C.trackCellNibName, bundle: nil), forCellReuseIdentifier: C.tracksListCellIdentifier)
+        albumTableView.register(UINib(nibName: "AlbumeDetalTableViewCell", bundle: nil), forCellReuseIdentifier: "AlbumeDetalTableViewCell")
         
         albumName.text = almobeLabelText
         
 #warning ("заполняемость нужными треками")
-        fetchSong(songName: "lithium")
+//        fetchSong(songName: "lithium")
+        
         print(collectionId)
-        fetchAlbumData(collectionId: collectionId)
         
         albumName.text = albumNamee
         artistName.text = artistNamee
@@ -53,7 +54,7 @@ class AlbumViewController: UIViewController {
                 self.albumCover.image = UIImage(data: data)
             }
         }
-        
+        fetchAlbumData(collectionId: collectionId)
         
         
     }
@@ -67,7 +68,7 @@ class AlbumViewController: UIViewController {
         NetworkFetch.shared.albumFetch(urlString: url) { albumModel, error in
             if error == nil {
                 guard let albumModel = albumModel else {return}
-                self.album = albumModel.results
+                self.resultAlbume = albumModel.results
                 self.albumTableView.reloadData()
             } else {
                 print(error!.localizedDescription)
@@ -77,52 +78,60 @@ class AlbumViewController: UIViewController {
 
     
     
-    private func fetchSong(songName: String) {
-        let urlString = "https://itunes.apple.com/search?entity=song&term=\(songName)"
-        print(urlString)
-        NetworkFetch.shared.songFetch(urlString: urlString) { [weak self] trackModel, error in
-            if error == nil {
-                guard let trackModel = trackModel else {return}
-                self?.tracks = trackModel.results
-                self?.albumTableView.reloadData()
-            } else {
-                print(error!.localizedDescription)
-            }
-        }
-    }
+//    private func fetchSong(songName: String) {
+//        let urlString = "https://itunes.apple.com/search?entity=song&term=\(songName)"
+//        print(urlString)
+//        NetworkFetch.shared.songFetch(urlString: urlString) { [weak self] trackModel, error in
+//            if error == nil {
+//                guard let trackModel = trackModel else {return}
+//                self?.tracks = trackModel.results
+//                self?.albumTableView.reloadData()
+//            } else {
+//                print(error!.localizedDescription)
+//            }
+//        }
+//    }
 }
+
+
+
+
 
 //MARK: - Extensions
 extension AlbumViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tracks.count
+        return resultAlbume.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: C.tracksListCellIdentifier, for: indexPath) as! TracksTableViewCell
-        let track = tracks[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumeDetalTableViewCell", for: indexPath) as! AlbumeDetalTableViewCell
+        let track = resultAlbume[indexPath.row]
         cell.artistLabel.text = track.artistName
         cell.songLabel.text = track.trackName
-        cell.configure(trackModel: track)
+        cell.configureAlbume(trackModel: track)
         return cell
     }
 }
 
+
+
+
+
+
+
 extension AlbumViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
-        let track = tracks[indexPath.row]
-        print("cellViewModel.trackName:", track.trackName)
         
+        let track = resultAlbume[indexPath.row]
                 let window = UIApplication.shared.keyWindow
                 let trackDetailsView = Bundle.main.loadNibNamed("TrackDetailView", owner: self)?.first as! TrackDetalViewController
-                trackDetailsView.set(viewModel: track)
+                trackDetailsView.set(viewModelAlbume: track)
                 trackDetailsView.delegate = self
                 window?.addSubview(trackDetailsView)
         
 //                let vc = storyboard?.instantiateViewController(withIdentifier: "PlayerViewController") as? PlayerViewController
 //                self.navigationController?.pushViewController(vc!, animated: true)
-        tabBarDelegate?.maximazeTrackDetailController(viewModel: track )
+//        tabBarDelegate?.maximazeTrackDetailController(viewModel: track )
         
     }
 }
@@ -145,7 +154,7 @@ func getTrack(isForwardTrack: Bool) -> Tracks? {
     
     albumTableView.selectRow(at: nextIndexPath, animated: true, scrollPosition: .none)
     let cellViewModel = tracks[indexPath.row]
-    print(cellViewModel.trackName)
+    
     return cellViewModel
 }
 
