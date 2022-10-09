@@ -130,7 +130,16 @@ extension MainViewController: UICollectionViewDelegate {
                 print(result)
                 switch result {
                 case .success(let success):
-                    self.collId =  "https://itunes.apple.com/lookup?id=\(success.results[indexPath.row].collectionId)&entity=song"
+                    print(success.results[indexPath.row].collectionId)
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "AlbumViewController") as? AlbumViewController
+                    vc?.collectionId = success.results[indexPath.row].collectionId
+                    vc?.albumNamee = success.results[indexPath.row].collectionName
+                    vc?.artistNamee = success.results[indexPath.row].artistName
+                    vc?.trackCount = success.results[indexPath.row].trackCount
+                    vc?.getImage = success.results[indexPath.row].artworkUrl100 ?? ""
+                    print(vc?.collectionId ?? 0)
+                    print("https://itunes.apple.com/lookup?id=\(success.results[indexPath.row].collectionId)&entity=song")
+                    self.present(vc!, animated: true)
                 case .failure(let failure):
                     print(failure.localizedDescription)
                 }
@@ -141,12 +150,23 @@ extension MainViewController: UICollectionViewDelegate {
                 switch result {
                 case .success(let success):
                     print(success.results[indexPath.row].collectionId)
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "AlbumViewController") as? AlbumViewController
+                    vc?.collectionId = success.results[indexPath.row].collectionId
+                    vc?.albumNamee = success.results[indexPath.row].collectionName
+                    vc?.artistNamee = success.results[indexPath.row].artistName
+                    vc?.trackCount = success.results[indexPath.row].trackCount
+                    vc?.getImage = success.results[indexPath.row].artworkUrl100 ?? ""
+                    print(vc?.collectionId ?? 0)
+                    print(success)
+                    self.present(vc!, animated: true)
+//                    self.performSegue(withIdentifier: "ShowDetailsAlbum", sender: nil)
                 case .failure(let failure):
                     print(failure.localizedDescription)
                 }
             }
         }
-        performSegue(withIdentifier: "ShowDetailsAlbum", sender: nil)
+     
+        
         
     }
 }

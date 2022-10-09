@@ -130,7 +130,7 @@
         <!--Album View Controller-->
         <scene sceneID="9x7-N6-0ZM">
             <objects>
-                <viewController id="XlT-j4-zUs" customClass="AlbumViewController" customModule="MusicPlayerChallange" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="AlbumViewController" storyboardIdentifier="AlbumViewController" id="XlT-j4-zUs" customClass="AlbumViewController" customModule="MusicPlayerChallange" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fA2-rR-rAA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

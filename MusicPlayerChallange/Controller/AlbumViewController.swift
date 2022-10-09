@@ -19,7 +19,11 @@ class AlbumViewController: UIViewController {
     //MARK: - Variables & Constants
     var tracks = [Tracks]()
     var album = [ResultsAlbum]()
-    var collectionId = Int()
+    var collectionId: Int = 0
+    var albumNamee: String = ""
+    var artistNamee: String = ""
+    var trackCount: Int = 0
+    var getImage: String? = ""
     weak var tabBarDelegate: MainTabBarControllerDelegate?
     
     var almobeLabelText = ""
@@ -34,22 +38,32 @@ class AlbumViewController: UIViewController {
         
 #warning ("заполняемость нужными треками")
         fetchSong(songName: "lithium")
-        fetchAlbumData(collectionId: 1169213791)
+        print(collectionId)
+        fetchAlbumData(collectionId: collectionId)
         
-        albumName.text = "Nevermind"
-        artistName.text = "Nirvana"
-//        albumCover.image =
-        yearAndTrackQty.text = "1999 10 tracks"
+        albumName.text = albumNamee
+        artistName.text = artistNamee
+        yearAndTrackQty.text = String(describing: trackCount)
+        
+        
+        guard let url = getImage else { return}
+        DispatchQueue.global().async {
+            guard let data = try? Data(contentsOf: URL(string: url)!) else { return }
+            DispatchQueue.main.async {
+                self.albumCover.image = UIImage(data: data)
+            }
+        }
+        
+        
         
     }
     // https://itunes.apple.com/search?term=nevermind&entity=album&attribute=albumTerm
     // https://itunes.apple.com/lookup?upc=1440721439&entity=song
-//https://itunes.apple.com/lookup?id=1169213791&entity=song
-    
+    // https://itunes.apple.com/lookup?id=1169213791&entity=song
     //https://itunes.apple.com/lookup?id=1169213791&entity=musicArtist
     
     private func fetchAlbumData(collectionId: Int) {
-        let url = "https://itunes.apple.com/lookup?id=\(collectionId)&entity=musicArtist"
+        let url = "https://itunes.apple.com/lookup?id=\(collectionId)&entity=song"
         NetworkFetch.shared.albumFetch(urlString: url) { albumModel, error in
             if error == nil {
                 guard let albumModel = albumModel else {return}
