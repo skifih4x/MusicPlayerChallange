@@ -16,7 +16,7 @@ class MainViewController: UIViewController {
         }
     }
     let manager = MusicManager()
-    
+    var collId = ""
 
     
     override func viewDidLoad() {
@@ -24,8 +24,13 @@ class MainViewController: UIViewController {
         collectionView.collectionViewLayout = layout
         registerCells()
         manager.performRequest()
+        print(collId)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destVC = segue.destination as? AlbumViewController else { return }
+        destVC.almobeLabelText = collId
+    }
     let layout: UICollectionViewCompositionalLayout = {
         
         let inset: CGFloat = 2.5
@@ -125,8 +130,7 @@ extension MainViewController: UICollectionViewDelegate {
                 print(result)
                 switch result {
                 case .success(let success):
-                    print(success.results[indexPath.row].collectionId)
-                    print("https://itunes.apple.com/lookup?id=\(success.results[indexPath.row].collectionId)&entity=song")
+                    self.collId =  "https://itunes.apple.com/lookup?id=\(success.results[indexPath.row].collectionId)&entity=song"
                 case .failure(let failure):
                     print(failure.localizedDescription)
                 }

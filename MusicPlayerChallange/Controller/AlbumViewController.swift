@@ -22,11 +22,15 @@ class AlbumViewController: UIViewController {
     var collectionId = Int()
     weak var tabBarDelegate: MainTabBarControllerDelegate?
     
+    var almobeLabelText = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         albumTableView.delegate = self
         albumTableView.dataSource = self
         albumTableView.register(UINib(nibName: C.trackCellNibName, bundle: nil), forCellReuseIdentifier: C.tracksListCellIdentifier)
+        
+        albumName.text = almobeLabelText
         
 #warning ("заполняемость нужными треками")
         fetchSong(songName: "lithium")
